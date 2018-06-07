@@ -28,4 +28,8 @@ export class UserService {
   getMethodDemo(): Observable<any> {
     return this.httpClient.get("http://localhost:51680/api/AppUser/GetUser");
   }
+
+  postMethodDemo(newUser): Observable<any> {
+    return this.httpClient.post("http://localhost:51680/api/AppUser/CreateUser", newUser);
+  }
 }

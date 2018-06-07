@@ -22,7 +22,24 @@ export class AppComponent {
             this.User = data;
             console.log(this.User);
           }
-      )
-      
+      )  
+  }
+
+  callPost(){
+    let newUser = {
+      Adress: "Nova adresa",
+      CanCreateService:false,
+      DateOfBirth:"1-1-1999",
+      FullName:"Pera Peric",
+      Image:"",
+      Verified:false
+    };
+
+    this.UserService.postMethodDemo(newUser)
+    .subscribe(
+      data => {
+        alert(data);
+      }
+    )
   }
 }
