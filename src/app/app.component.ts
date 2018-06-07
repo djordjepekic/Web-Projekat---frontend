@@ -38,7 +38,14 @@ export class AppComponent {
     this.UserService.postMethodDemo(newUser)
     .subscribe(
       data => {
-        alert(data);
+        if(data!=null)
+          {
+            alert("Success")
+          }
+        else
+        {
+          alert("Failure")
+        }
       }
     )
   }
