@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
+import { User} from '../models/user'
+
 
 import { Observable } from 'rxjs';
 
@@ -25,9 +27,5 @@ export class UserService {
 
   getMethodDemo(): Observable<any> {
     return this.httpClient.get("http://localhost:51680/api/AppUser/GetUser");
-  }
-
-  postMethodDemo(newMember): Observable<any> {
-    return this.httpClient.post("https://jsonplaceholder.typicode.com/posts", newMember);
   }
 }

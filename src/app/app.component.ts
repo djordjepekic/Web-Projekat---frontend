@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
-
-
+import { User } from './models/user'
 
 
 @Component({
@@ -13,15 +12,15 @@ import { UserService } from './services/user.service';
 
 export class AppComponent {
   title = 'moja aplikacija';  
-  private methodResult;
+  private User: User;
   constructor(private UserService: UserService) { }
 
   callGet(){
     this.UserService.getMethodDemo()
       .subscribe(
           data => {
-            this.methodResult = data;
-            alert(data);
+            this.User = data;
+            console.log(this.User);
           }
       )
       
