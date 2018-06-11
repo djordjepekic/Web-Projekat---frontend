@@ -25,7 +25,7 @@ export class AppComponent {
       )  
   }
 
-  callPost(){
+  callPost(){    
     let newUser = {
       Adress: "Nova adresa",
       CanCreateService:false,
