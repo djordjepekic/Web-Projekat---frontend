@@ -14,11 +14,11 @@ export class UserRegisterService {
 
   register(user : UserRegistration) : Observable<any> {
     let header = new Headers();
-    header.append('Content-type', 'application/json');
+    header.append("Content-type", "application/json");
 
     let opts = new RequestOptions();
     opts.headers = header;
 
-    return this.httpClient.post(`http://localhost:51680/api/Account/Register`, user, opts);
+    return this.httpClient.post("http://localhost:51680/api/Account/Register", user);
   }
 }

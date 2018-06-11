@@ -19,16 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(form: NgForm): void {
-    this.userService.logIn(this.Username, this.Password).subscribe(asd => {
-      localStorage.setItem('token_id', asd.json().access_token);
-      localStorage.setItem('role', asd.headers.get('Role'));
-      localStorage.setItem('user', this.Username);
-
-      console.log(asd.json());
-
-      if (localStorage.getItem("role") != undefined) {
-        this.router.navigate(['/home']);
-      }
-    });
+    this.userService.logIn(form.value)
   }
 }

@@ -21,9 +21,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitRegister(){
-    this.userService.register(new UserRegistration(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword, false)).subscribe();
-    this.Email = "";
-    this.Password = "";
-    this.ConfirmPassword = "";
+    this.userService.register(new UserRegistration(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword)).subscribe();
   }
 }

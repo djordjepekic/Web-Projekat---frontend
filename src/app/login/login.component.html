@@ -1,5 +1,5 @@
 <div>
-  <form #f="ngForm" (ngSubmit)="logIn()">
+  <form #f="ngForm" (ngSubmit)="logIn(f)">
     <table>
       <tr>
           <td>
@@ -11,10 +11,10 @@
       </tr>
       <tr>
           <td>
-              <input type="text" name="Username" id="Username" [(ngModel)]="Username"/>
+              <input type="text" name="username" id="Username" ngModel/>
           </td>
           <td>
-              <input type="password" name="Password" id="Password" [(ngModel)]="Password"/>
+              <input type="password" name="password" id="Password" ngModel/>
           </td>
           <td>
               <input class="button button1" type="submit" value="Login"/>
