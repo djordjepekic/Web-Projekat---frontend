@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ImageComponent } from './image/image.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ImageDetailComponent } from './image-detail/image-detail.component';
 
 const  Routes = [
   {
@@ -23,6 +27,14 @@ const  Routes = [
     component: LoginComponent,
   },
   {
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
+    path: "image/:id",
+    component: ImageDetailComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -33,7 +45,11 @@ const  Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ImageComponent,
+    GalleryComponent,
+    NavbarComponent,
+    ImageDetailComponent
   ],
   imports: [
     BrowserModule,
