@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Vehicle } from '../models/vehicle';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-
+export class VehicleService {
+  
   constructor(private httpClient: HttpClient) { }
-
+  
   private parseData(res: Response) {
     return res.json() || [];
   }
@@ -22,11 +22,15 @@ export class UserService {
     return Observable.throw(errorMessage);
   }
 
-  getUsers(): Observable<any> {
-    return this.httpClient.get("http://localhost:51680/api/AppUser/GetUser");
+  getVehicles(pageNo, pageSize): Observable<any> {
+    let params: HttpParams = new HttpParams()
+    .set('pageNo', pageNo)
+    .set('pageSize', pageSize);
+
+    return this.httpClient.get("http://localhost:51680/api/Vehicle", {params: params});
   }
 
-  postUser(newUser): Observable<any> {
-    return this.httpClient.post("http://localhost:51680/api/AppUser/CreateUser", newUser);
+  postVehicle(newVehicle): Observable<any> {
+    return this.httpClient.post("http://localhost:51680/api/Vehicle", newVehicle);
   }
 }

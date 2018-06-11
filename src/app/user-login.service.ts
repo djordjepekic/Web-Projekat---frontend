@@ -45,6 +45,7 @@ export class UserLoginService {
           console.log('decodedJwtData: ' + decodedJwtData)
           console.log('Role ' + role)
 
+<<<<<<< HEAD
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);
         },
@@ -53,5 +54,9 @@ export class UserLoginService {
         }
       );
     }
+=======
+    return this.httpClient.post(
+        "http://localhost:51680/oauth/token", 'username=${Username}&password=${Password}&grant_type=password');
+>>>>>>> 15c8053d400eb70a1d4b9ae7a9d73a6caa9db323
   }
 }

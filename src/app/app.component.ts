@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
+import { VehicleService} from './services/vehicle.service'
 import { User } from './models/user'
+import { Vehicle} from './models/vehicle'
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],  
-  providers: [UserService]
+  providers: [UserService, VehicleService]
 })
 
 export class AppComponent {
-  title = 'moja aplikacija';  
+  title = 'Rent a vehicle';  
   private User: User;
-  constructor(private UserService: UserService) { }
+  constructor(private VehicleService: VehicleService) { }
 
   callGet(){
-    this.UserService.getMethodDemo()
+    this.VehicleService.getVehicles(1,5)
       .subscribe(
           data => {
             this.User = data;
@@ -35,7 +37,7 @@ export class AppComponent {
       Verified:false
     };
 
-    this.UserService.postMethodDemo(newUser)
+    this.VehicleService.postVehicle(newUser)
     .subscribe(
       data => {
         if(data!=null)
