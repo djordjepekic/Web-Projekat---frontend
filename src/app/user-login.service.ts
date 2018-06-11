@@ -20,6 +20,6 @@ export class UserLoginService {
     opts.headers = headers;
 
     return this.httpClient.post(
-        'http://localhost:51680/oauth/token', `username=${Username}&password=${Password}&grant_type=password);
+        "http://localhost:51680/oauth/token", 'username=${Username}&password=${Password}&grant_type=password');
   }
 }

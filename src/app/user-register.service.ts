@@ -19,6 +19,10 @@ export class UserRegisterService {
     let opts = new RequestOptions();
     opts.headers = header;
 
-    return this.httpClient.post(`http://localhost:51680/api/Account/Register`, user, opts);
+    return null;
+    /*
+    return this.httpClient.post("http://localhost:51680/api/Account/Register", user, opts);
+    */
   }
+  
 }
