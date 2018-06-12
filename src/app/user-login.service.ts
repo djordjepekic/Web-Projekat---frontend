@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { LocalStorageEnum } from '../app/localStorageEnum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
   loggedIn: boolean;
+  token : Response
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private route : Router) { }
 
-  logIn(user): Observable<any> {
+  log(user): Observable<any> {
     console.log(user)
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
@@ -20,7 +23,7 @@ export class UserLoginService {
 
   }
 
-  log(user) {
+  logIn(user) {
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
     
@@ -46,7 +49,10 @@ export class UserLoginService {
           console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
-          localStorage.setItem('role', role);
+          localStorage.setItem(LocalStorageEnum.User.toString(), res.access_token['access_token']);
+          localStorage.setItem(LocalStorageEnum.UserName.toString(), user.username)
+
+          this.route.navigate(['/home']);
         },
         err => {
           console.log("Error occured");

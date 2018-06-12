@@ -18,6 +18,14 @@
           </td>
       </tr>
       <tr>
+            <td>
+                  <label for = "FullName">FullName:</label>
+            </td>
+            <td>
+                  <input type="text" name="FullName" id="FullName" [(ngModel)]="FullName"/>
+            </td>
+      </tr>
+      <tr>
           <td>
                 <label for = "Password">Password:</label>
           </td>
@@ -44,6 +52,14 @@
                    <option value="Manager">Manager</option>
                 </select>
           </td>
+      </tr>
+      <tr>
+            <td>
+                  <label>Date of birth:</label>
+             </td>
+            <td>
+                  <input type="date" name="Date" id="Date" [(ngModel)]="DateOfBirth"/>
+            </td>
       </tr>
     </table>
     <br>

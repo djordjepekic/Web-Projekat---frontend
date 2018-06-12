@@ -11,6 +11,7 @@ import { ImageComponent } from './image/image.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const  Routes = [
   {
@@ -31,6 +32,10 @@ const  Routes = [
     component: RegisterComponent,
   },
   {
+    path : "logout", 
+    component: LogoutComponent,
+  },
+  {
     path: "image/:id",
     component: ImageDetailComponent,
   },
@@ -49,7 +54,8 @@ const  Routes = [
     ImageComponent,
     GalleryComponent,
     NavbarComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

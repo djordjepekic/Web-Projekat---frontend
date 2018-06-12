@@ -5,6 +5,7 @@ import { User } from './models/user'
 import { Vehicle} from './models/vehicle'
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +16,7 @@ import { Vehicle} from './models/vehicle'
 export class AppComponent {
   title = 'Rent a vehicle';  
   private User: User;
+  
   constructor(private VehicleService: VehicleService) { }
 
   callGet(){
@@ -51,4 +53,6 @@ export class AppComponent {
       }
     )
   }
+
+ 
 }
