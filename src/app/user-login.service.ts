@@ -49,7 +49,8 @@ export class UserLoginService {
           console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
-          localStorage.setItem(LocalStorageEnum.User.toString(), res.access_token['access_token']);
+          localStorage.setItem(LocalStorageEnum.User.toString(), decodedJwtJsonData); // token
+          localStorage.setItem(LocalStorageEnum.Role.toString(), role);
           localStorage.setItem(LocalStorageEnum.UserName.toString(), user.username)
 
           this.route.navigate(['/home']);
