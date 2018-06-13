@@ -22,3 +22,10 @@ nav{
     background-color: #e6e6e6;
   }
   
+  .topcorner{
+    position:fixed;
+    top:1;
+    right:0;
+    color:white;
+    background-color: #424242;
+   }
