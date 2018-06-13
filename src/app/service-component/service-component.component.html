@@ -1,0 +1,43 @@
+<div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <table>
+        <tr>
+            <td>
+                <label for = "Name">Name:</label>
+            </td>
+            <td>
+              <input type="text" name="name" id="Name" [(ngModel)]="Name"/>
+            </td>      
+        </tr>
+        <tr>
+            <td>
+                <label for = "Logo">Logo:</label>
+            </td> 
+            <td>
+                <input type="file" (change)="onFileSelected($event)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for = "Email">Email:</label>
+            </td>
+            <td>
+              <input type="string" name="email" id="Email" [(ngModel)]="Email"/>
+            </td>      
+        </tr>
+        <tr>
+            <td>
+                <label for = "Description">Description:</label>
+            </td> 
+            <td>
+                <input type="text" name="description" id="Description" [(ngModel)]="Description"/>
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="button button1" type="submit" value="Create"/>
+          </td>          
+        </tr>
+      </table>
+    </form>
+  </div>

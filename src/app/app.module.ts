@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { LogoutComponent } from './logout/logout.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { ServiceComponentComponent } from './service-component/service-component.component';
 
 const  Routes = [
   {
@@ -45,6 +46,10 @@ const  Routes = [
     component: VehicleComponent,
   },
   {
+    path: "addservice",
+    component: ServiceComponentComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -61,7 +66,8 @@ const  Routes = [
     NavbarComponent,
     ImageDetailComponent,
     LogoutComponent,
-    VehicleComponent
+    VehicleComponent,
+    ServiceComponentComponent
   ],
   imports: [
     BrowserModule,
