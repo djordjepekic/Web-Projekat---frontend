@@ -14,9 +14,9 @@ export class LogoutService {
 
   logout() {   
         localStorage.removeItem('jwt')
-        localStorage.removeItem(LocalStorageEnum.Role.toString());
-        localStorage.removeItem(LocalStorageEnum.UserName.toString());  
-        localStorage.removeItem(LocalStorageEnum.User.toString());
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        localStorage.removeItem("username");  
         this.route.navigate(['/home']);    
        }
 }

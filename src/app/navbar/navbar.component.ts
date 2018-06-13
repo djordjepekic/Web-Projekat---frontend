@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   IsLoggedIn() : boolean {
 
-    this.username = localStorage.getItem(LocalStorageEnum.UserName.toString());
+    this.username = localStorage.getItem("username");
     return this.localStorageService.IsLoggedIn();
   }
 

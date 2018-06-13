@@ -49,9 +49,9 @@ export class UserLoginService {
           console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
-          localStorage.setItem(LocalStorageEnum.User.toString(), decodedJwtJsonData); // token
-          localStorage.setItem(LocalStorageEnum.Role.toString(), role);
-          localStorage.setItem(LocalStorageEnum.UserName.toString(), user.username)
+          localStorage.setItem("token", decodedJwtData); // token
+          localStorage.setItem("role", role);
+          localStorage.setItem("username", user.username);
 
           this.route.navigate(['/home']);
         },

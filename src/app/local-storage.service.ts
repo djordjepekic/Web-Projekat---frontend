@@ -9,7 +9,7 @@ export class LocalStorageService {
   constructor() { }
 
   IsLoggedIn() : boolean {
-    if (localStorage.getItem(LocalStorageEnum.User.toString()) !== null)
+    if (localStorage.getItem("username") !== null)
     {
         return true;
     }
