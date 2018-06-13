@@ -41,6 +41,10 @@ const  Routes = [
     component: ImageDetailComponent,
   },
   {
+    path: "addvehicle",
+    component: VehicleComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
