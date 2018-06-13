@@ -12,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { LogoutComponent } from './logout/logout.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 const  Routes = [
   {
@@ -55,7 +56,8 @@ const  Routes = [
     GalleryComponent,
     NavbarComponent,
     ImageDetailComponent,
-    LogoutComponent
+    LogoutComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,

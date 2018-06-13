@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageEnum } from './localStorageEnum';
+import { LocalStorageEnum } from '../localStorageEnum';
 
 @Injectable({
   providedIn: 'root'
