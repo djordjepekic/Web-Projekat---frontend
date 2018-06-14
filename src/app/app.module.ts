@@ -16,6 +16,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { ServiceComponentComponent } from './service-component/service-component.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app/interceptors/tokeninterceptor';
+import { OfficeComponent } from './office/office.component';
 
 const  Routes = [
   {
@@ -69,7 +70,8 @@ const  Routes = [
     ImageDetailComponent,
     LogoutComponent,
     VehicleComponent,
-    ServiceComponentComponent
+    ServiceComponentComponent,
+    OfficeComponent
   ],
   imports: [
     BrowserModule,
