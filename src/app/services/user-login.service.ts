@@ -3,7 +3,6 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LocalStorageEnum } from '../localStorageEnum';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +48,7 @@ export class UserLoginService {
           console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
-          localStorage.setItem("token", decodedJwtData); // token
+          localStorage.setItem("token", decodedJwtJsonData); // token
           localStorage.setItem("role", role);
           localStorage.setItem("username", user.username);
 

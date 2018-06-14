@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LocalStorageEnum } from '../localStorageEnum';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 

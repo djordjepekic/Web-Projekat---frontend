@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageEnum } from '../localStorageEnum';
 import { LocalStorageService } from '../services/local-storage.service'
 
 @Component({
