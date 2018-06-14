@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-image',
@@ -8,14 +9,18 @@ import { HttpClientModule, HttpClient } from '@angular/common/http'
 })
 export class ImageComponent implements OnInit {
   selectedFile: File = null;
+  imagepath: string;
 
   onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
+    this.imagepath = environment.backendImages + "bmwm3.jpg";
+    console.log(this.imagepath)
   }
 
   constructor(private httpClient:HttpClient) { }
 
   ngOnInit() {
+    
   }
 
   onUpload(){
