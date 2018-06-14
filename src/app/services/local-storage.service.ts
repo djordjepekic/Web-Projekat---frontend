@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageEnum } from '../localStorageEnum';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class LocalStorageService {
   }
 
   isAdmin() : boolean {
-    if ( localStorage.getItem(LocalStorageEnum.Role.toString()) == "Admin")
+    if ( localStorage.getItem("role") == "Admin")
     {
         return true;
     }
@@ -27,7 +26,7 @@ export class LocalStorageService {
 }
 
 isManager() : boolean {
-    if ( localStorage.getItem(LocalStorageEnum.Role.toString()) == "Manager")
+    if ( localStorage.getItem("role") == "Manager")
     {
         return true;
     }
@@ -36,7 +35,7 @@ isManager() : boolean {
 }
 
 isUser() : boolean {
-    if ( localStorage.getItem(LocalStorageEnum.Role.toString()) == "AppUser")
+    if ( localStorage.getItem("role") == "AppUser")
     {
         return true;
     }

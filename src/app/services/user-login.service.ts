@@ -3,7 +3,6 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LocalStorageEnum } from '../localStorageEnum';
 
 @Injectable({
   providedIn: 'root'

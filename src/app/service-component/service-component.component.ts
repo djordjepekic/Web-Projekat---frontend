@@ -51,7 +51,7 @@ export class ServiceComponentComponent implements OnInit {
           },
           error => 
           {
-              alert("Service not added, error occured.");   
+              alert("Service not added, autorization problem.");   
           });
        }
     }
