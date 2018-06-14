@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ServiceComponentComponent implements OnInit {
 
   Name : string;
-  Logo : File;
+  Logo : string;
   Email : string;
   Description : string;
 
@@ -19,7 +19,7 @@ export class ServiceComponentComponent implements OnInit {
   selectedFile: File = null;
 
   onFileSelected(event){
-    this.Logo = <File>event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
   }
 
   ngOnInit() {
@@ -37,21 +37,28 @@ export class ServiceComponentComponent implements OnInit {
           let headers = new HttpHeaders();
           headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
           headers.append('enctype','multipart/form-data');
+          this.Logo = this.selectedFile.name;
+          
+          let service = new Service(this.Name, this.Logo, this.Email, this.Description)
 
-          let service = new Service(this.Name, this.Logo.name, this.Email, this.Description)
-          let fd = new FormData();
-          
-          //fd.append('image',this.Logo, this.Logo.name);
-          
-          fd.append('Service',JSON.stringify(service));
-          let x = this.httpClient.post(`http://localhost:51680/api/Services/PostService`, fd.get('Service'), {"headers": headers});
+          let fd = new FormData();                 
+          fd.append('service',JSON.stringify(service));          
+
+          let x = this.httpClient.post(`http://localhost:51680/api/Services/PostService`, fd.get('service') , {"headers": headers});
             x.subscribe(
-          res => {;
-            alert("Service successfully added.");   
+          res => {
+            let fdImage = new FormData();
+            fdImage.append('image',this.selectedFile, this.selectedFile.name);
+            let y = this.httpClient.post(`http://localhost:51680/api/Services/PostServiceImage`, fdImage);
+            y.subscribe(
+              resImage => {
+                alert("Service successfully added.");
+              }
+            )              
           },
           error => 
           {
-              alert("Service not added, autorization problem.");   
+              alert("Service not added, error occured.");   
           });
        }
     }
