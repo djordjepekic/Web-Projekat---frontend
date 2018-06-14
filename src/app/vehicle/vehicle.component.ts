@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent implements OnInit {
-
+  Model : string;
+  
   constructor() { }
 
   ngOnInit() {
   }
-
   
+
 
 }

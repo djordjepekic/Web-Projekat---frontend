@@ -49,7 +49,7 @@ export class UserLoginService {
           console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
-          localStorage.setItem("token", decodedJwtData); // token
+          localStorage.setItem("token", decodedJwtJsonData); // token
           localStorage.setItem("role", role);
           localStorage.setItem("username", user.username);
 

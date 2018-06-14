@@ -14,6 +14,8 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { LogoutComponent } from './logout/logout.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { ServiceComponentComponent } from './service-component/service-component.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '../app/interceptors/tokeninterceptor';
 
 const  Routes = [
   {
@@ -75,7 +77,13 @@ const  Routes = [
     RouterModule.forRoot(Routes),
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
