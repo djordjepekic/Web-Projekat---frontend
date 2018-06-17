@@ -60,7 +60,7 @@ export class OfficeComponent implements OnInit {
           headers.append('enctype','multipart/form-data');
           this.Image = this.selectedFile.name;
           
-          let office = new Office(this.Image, this.Adress, this.Latitude, this.Longitude, this.ServiceId);
+          let office = new Office(this.Image, this.Adress, this.Latitude, this.Longitude, this.ServiceId, this.Service);
 
           let fd = new FormData();                 
           fd.append('office',JSON.stringify(office));          
