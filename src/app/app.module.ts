@@ -53,6 +53,10 @@ const  Routes = [
     component: ServiceComponentComponent,
   },
   {
+    path: "addoffice",
+    component: OfficeComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  

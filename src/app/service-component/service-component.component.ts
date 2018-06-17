@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { unescapeIdentifier } from '@angular/compiler';
 import { Service } from '../models/service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-service-component',
@@ -23,6 +24,16 @@ export class ServiceComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getAllServices() : Observable<any>
+  { 
+    return this.httpClient.get('http://localhost:51680/api/Services/GetServices');
+  }
+
+  getServiceById(id : number) : Observable<any> 
+  {
+    return this.httpClient.get('http://localhost:51680/api/Services/GetService?$filter=ServiceId eq ' + id);
   }
 
   onSubmit(){
