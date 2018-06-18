@@ -23,11 +23,8 @@ export class VehicleComponent implements OnInit {
   Available : boolean;
   Image : string;
   VehicleTypeId : number;
-  VehicleType : VehicleType;
   ServiceId : number;
-  Service : Service;
   UserId : number;
-  User : User;
   services: Service[];
   types : VehicleType[];
   
@@ -50,23 +47,9 @@ export class VehicleComponent implements OnInit {
     return this.vehicleTypeComponent.getAllTypes().subscribe(t => this.types = t)
   }
 
-  serviceSelected()
-  {
-    var serviceElement = Number.parseInt((<HTMLInputElement>document.getElementById("ServiceId")).value);
-  }
-
-  typeSelected()
-  {
-    var typeElement = Number.parseInt((<HTMLInputElement>document.getElementById("VehicleTypeId")).value);
-  }
-
   ngOnInit() {
     this.getServices();
     this.getTypes();
-    this.Service = null;
-    this.VehicleType = null;
-    this.User = null;
-    this.UserId = 0;
   }
 
   onSubmit(){
@@ -98,13 +81,13 @@ export class VehicleComponent implements OnInit {
             let y = this.httpClient.post(`http://localhost:51680/api/Vehicle/PostVehicleImage`, fdImage);
             y.subscribe(
               resImage => {
-                alert("Office successfully added.");
+                alert("Vehicle successfully added.");
               }
             )              
           },
           error => 
           {
-              alert("Office not added, error occured.");   
+              alert("Vehicle not added, error occured.");   
           });
        }
     }

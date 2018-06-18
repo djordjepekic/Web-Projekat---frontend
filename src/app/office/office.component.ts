@@ -17,7 +17,6 @@ export class OfficeComponent implements OnInit {
   Image : string;
   Latitude : number;
   Longitude : number;
-  Service: Service;
   ServiceId: number;
   services: Service[];
 
@@ -35,15 +34,9 @@ export class OfficeComponent implements OnInit {
     return this.serviceComponent.getAllServices().subscribe(s => this.services = s)
   }
 
-  serviceSelected()
-  {
-    var serviceElement = Number.parseInt((<HTMLInputElement>document.getElementById("ServiceId")).value);
-    //this.Service = this.services[serviceElement - 1];
-  }
 
   ngOnInit() {
     this.getServices();
-    this.Service = null;
   }
 
   onSubmit(){

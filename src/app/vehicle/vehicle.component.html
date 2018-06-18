@@ -6,7 +6,7 @@
               <label for = "Service">Service:</label>
           </td>
           <td>
-              <select style="width: 100%" name="Serivces" id="ServiceId" [(ngModel)]="ServiceId" (change)="serviceSelected()">
+              <select style="width: 100%" name="Serivces" id="ServiceId" [(ngModel)]="ServiceId">
                   <option *ngFor = "let service of services" value={{service.Id}} >{{service.Name}}</option>
               </select>
           </td>      
@@ -16,7 +16,7 @@
               <label for = "VehicleType">VehicleType:</label>
           </td>
           <td>
-              <select style="width: 100%" name="VehicleTypes" id="VehicleTypeId" [(ngModel)]="VehicleTypeId" (change)="typeSelected()">
+              <select style="width: 100%" name="VehicleTypes" id="VehicleTypeId" [(ngModel)]="VehicleTypeId">
                   <option *ngFor = "let type of types" value={{type.Id}} >{{type.TypeName}}</option>
               </select>
           </td>      
