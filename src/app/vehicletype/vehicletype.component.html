@@ -1,0 +1,16 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)"> 
+    <table>
+      <td>
+        <label for = "TypeName">Type:</label>
+      </td>
+      <td>
+      <input type="text" name="typename" id="TypeName" [(ngModel)]="TypeName"/>
+      </td> 
+    </table>
+    <br>
+  <div>
+    <input class="button button1" type="submit" value="Create"/>
+  </div>
+</form>
+</div>

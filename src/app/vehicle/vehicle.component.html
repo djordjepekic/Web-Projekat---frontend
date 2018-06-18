@@ -3,10 +3,30 @@
     <table>
       <tr>
           <td>
+              <label for = "Service">Service:</label>
+          </td>
+          <td>
+              <select style="width: 100%" name="Serivces" id="ServiceId" [(ngModel)]="ServiceId" (change)="serviceSelected()">
+                  <option *ngFor = "let service of services" value={{service.Id}} >{{service.Name}}</option>
+              </select>
+          </td>      
+      </tr>
+      <tr>
+          <td>
+              <label for = "VehicleType">VehicleType:</label>
+          </td>
+          <td>
+              <select style="width: 100%" name="VehicleTypes" id="VehicleTypeId" [(ngModel)]="VehicleTypeId" (change)="typeSelected()">
+                  <option *ngFor = "let type of types" value={{type.Id}} >{{type.TypeName}}</option>
+              </select>
+          </td>      
+      </tr>
+      <tr>
+          <td>
               <label for = "Model">Model:</label>
           </td>
           <td>
-            <input type="text" name="model" id="Model" ngModel/>
+            <input type="text" name="model" id="Model" [(ngModel)]="Model"/>
           </td>      
       </tr>
       <tr>
@@ -14,7 +34,7 @@
               <label for = "Manufacturer">Manufacturer:</label>
             </td> 
           <td>
-              <input type="text" name="manufacturer" id="Manufacturer" ngModel/>
+              <input type="text" name="manufacturer" id="Manufacturer" [(ngModel)]="Manufacturer"/>
           </td>
       </tr>
       <tr>
@@ -22,7 +42,7 @@
               <label for = "Year">Year:</label>
           </td>
           <td>
-            <input type="number" name="year" id="Year" ngModel/>
+            <input type="number" name="year" id="Year" [(ngModel)]="Year"/>
           </td>      
       </tr>
       <tr>
@@ -30,9 +50,19 @@
               <label for = "Description">Description:</label>
             </td> 
           <td>
-              <input type="text" name="description" id="Description" ngModel/>
+              <input type="text" name="description" id="Description" [(ngModel)]="Description"/>
           </td>
       </tr>
+      <tr>
+          <td>
+              <label for = "Logo">Logo:</label>
+          </td> 
+          <td>
+              <input type="file" (change)="onFileSelected($event)">
+          </td>
+      </tr>
+      
+      <br>
       <tr>
         <td>
           <input class="button button1" type="submit" value="Create"/>
