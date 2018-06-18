@@ -38,7 +38,7 @@ export class OfficeComponent implements OnInit {
   serviceSelected()
   {
     var serviceElement = Number.parseInt((<HTMLInputElement>document.getElementById("ServiceId")).value);
-    this.Service = this.services[serviceElement - 1];
+    //this.Service = this.services[serviceElement - 1];
   }
 
   ngOnInit() {
@@ -60,7 +60,7 @@ export class OfficeComponent implements OnInit {
           headers.append('enctype','multipart/form-data');
           this.Image = this.selectedFile.name;
           
-          let office = new Office(this.Image, this.Adress, this.Latitude, this.Longitude, this.ServiceId, this.Service);
+          let office = new Office(this.Image, this.Adress, this.Latitude, this.Longitude, this.ServiceId);
 
           let fd = new FormData();                 
           fd.append('office',JSON.stringify(office));          

@@ -15,13 +15,11 @@ export class Office {
         latitude: number,
         longitude : number,
         serviceid : number,
-        service : Service
         ) {
     this.Adress = adress;
     this.Image = image;
     this.Latitude = latitude;
     this.Longitude = longitude;
     this.ServiceId = serviceid;
-    this.Service = service;
     }
 }
