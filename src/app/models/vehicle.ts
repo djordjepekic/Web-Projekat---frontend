@@ -26,11 +26,8 @@ export class Vehicle {
         available : boolean,
         image : string,
         vehicleTypeId : number,
-        vehicleType : VehicleType,
         serviceId : number,
-        service : Service,
-        userId : number,
-        user : User) {
+        userId : number) {
     this.Model = model;
     this.Manufacturer = manufacturer;
     this.Year = year;
@@ -38,10 +35,7 @@ export class Vehicle {
     this.Available = available;
     this.Image = image;
     this.VehicleTypeId = vehicleTypeId;
-    this.VehicleType = vehicleType;
     this.ServiceId = serviceId;
-    this.Service = service;
     this.UserId = userId;
-    this.User = user;
     }
 }

@@ -53,13 +53,11 @@ export class VehicleComponent implements OnInit {
   serviceSelected()
   {
     var serviceElement = Number.parseInt((<HTMLInputElement>document.getElementById("ServiceId")).value);
-    this.Service = this.services[serviceElement - 1];
   }
 
   typeSelected()
   {
     var typeElement = Number.parseInt((<HTMLInputElement>document.getElementById("VehicleTypeId")).value);
-    this.VehicleType = this.types[typeElement - 1];
   }
 
   ngOnInit() {
@@ -87,7 +85,7 @@ export class VehicleComponent implements OnInit {
           headers.append('enctype','multipart/form-data');
           this.Image = this.selectedFile.name;
           
-          let vehicle = new Vehicle(this.Model, this.Manufacturer, this.Year, this.Description, true, this.Image, this.VehicleTypeId, this.VehicleType, this.ServiceId, this.Service, this.UserId, this.User);
+          let vehicle = new Vehicle(this.Model, this.Manufacturer, this.Year, this.Description, true, this.Image, this.VehicleTypeId, this.ServiceId, this.UserId);
 
           let fd = new FormData();                 
           fd.append('vehicle',JSON.stringify(vehicle));          
