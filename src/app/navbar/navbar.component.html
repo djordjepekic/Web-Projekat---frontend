@@ -18,11 +18,11 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"></li>
           <li *ngIf="IsAdmin()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicletype']">Add Vehicle Type</a></li>
-         
+          <li *ngIf="IsAdmin()" class="nav-item"><a class="nav-link" [routerLink]="['/administration']">Administration</a></li>
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addservice']">Add Service</a></li>
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addoffice']">Add Office</a></li>
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicle']">Add Vehicle</a></li>
-          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/management']">Enable/Disable</a></li>      
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/management']">Management</a></li>      
     </ul>
   </div>
 </nav>

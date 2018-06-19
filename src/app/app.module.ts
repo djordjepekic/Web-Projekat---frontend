@@ -19,6 +19,7 @@ import { TokenInterceptor } from '../app/interceptors/tokeninterceptor';
 import { OfficeComponent } from './office/office.component';
 import { VehicletypeComponent } from './vehicletype/vehicletype.component';
 import { ManagementComponent } from './management/management.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 const  Routes = [
   {
@@ -67,6 +68,10 @@ const  Routes = [
     component: ManagementComponent,
   },
   {
+    path: "administration",
+    component: AdministrationComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -87,7 +92,8 @@ const  Routes = [
     ServiceComponentComponent,
     OfficeComponent,
     VehicletypeComponent,
-    ManagementComponent
+    ManagementComponent,
+    AdministrationComponent
   ],
   imports: [
     BrowserModule,

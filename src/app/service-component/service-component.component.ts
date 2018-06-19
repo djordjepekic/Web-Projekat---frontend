@@ -3,7 +3,6 @@ import { unescapeIdentifier } from '@angular/compiler';
 import { Service } from '../models/service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { VehicleComponent } from '../vehicle/vehicle.component';
 
 @Component({
   selector: 'app-service-component',
@@ -65,12 +64,16 @@ export class ServiceComponentComponent implements OnInit {
             y.subscribe(
               resImage => {
                 alert("Service successfully added.");
+              },
+              error => 
+              {          
+                alert("Service image not added.")
               }
             )              
           },
           error => 
-          {
-              alert("Service not added, error occured.");   
+          {          
+            alert("Service not added.")
           });
        }
     }
