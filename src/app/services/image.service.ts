@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Vehicle } from '../models/vehicle';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ImageService {
   visibleImages = [];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
     getImages(){
         return this.visibleImages = IMAGES.slice(0);
@@ -14,6 +19,14 @@ export class ImageService {
 
     getImage(id: number){
         return IMAGES.slice(0).find(image => image.id == id)
+    }
+
+    getVehicleImages(pageNo, pageSize): Observable<any> {
+      let params: HttpParams = new HttpParams()
+      .set('pageNo', pageNo)
+      .set('pageSize', pageSize);
+  
+      return this.httpClient.get("http://localhost:51680/api/Vehicle", {params: params});
     }
 }
 
