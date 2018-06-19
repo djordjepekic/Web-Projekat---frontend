@@ -13,6 +13,7 @@ export class ImageService {
   private IMAGES: Vehicle[];
   private PageCount: number;
   private PageNo: number;
+  private PageSize: number;
   private TotalRecordCount: number;
   private promise: any;
 
