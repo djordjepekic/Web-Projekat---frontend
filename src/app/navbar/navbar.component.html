@@ -5,7 +5,7 @@
       <li class="nav-item"><a class="nav-link" [routerLink]="['/home']">Home</a></li>
           <li *ngIf="!IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
           <li *ngIf="IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/logout']">Logout</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
+          <li *ngIf="!IsLoggedIn()"  class="nav-item"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
     </ul>
   </div>
   <div class="topcorner">
@@ -20,7 +20,7 @@
           <li *ngIf="IsAdmin()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicletype']">Add Vehicle Type</a></li>
          
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addservice']">Add Service</a></li>
-          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addvoffice']">Add Office</a></li>
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addoffice']">Add Office</a></li>
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicle']">Add Vehicle</a></li>
           <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/management']">Enable/Disable</a></li>      
     </ul>
