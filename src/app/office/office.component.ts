@@ -4,12 +4,14 @@ import { ServiceComponentComponent } from '../service-component/service-componen
 import { Observable } from 'rxjs';
 import { Office } from '../models/office';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LocalStorageService } from '../services/local-storage.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-office',
   templateUrl: './office.component.html',
   styleUrls: ['./office.component.css'],
-  providers: [ServiceComponentComponent],
+  providers: [ServiceComponentComponent, NavbarComponent],
 })
 export class OfficeComponent implements OnInit {
 
@@ -20,7 +22,9 @@ export class OfficeComponent implements OnInit {
   ServiceId: number;
   services: Service[];
 
-  constructor(private serviceComponent : ServiceComponentComponent, private httpClient: HttpClient) { 
+  constructor(private serviceComponent : ServiceComponentComponent, 
+              private navbarComponent : NavbarComponent, 
+              private httpClient: HttpClient) { 
     this.services = []
   }
   selectedFile: File = null;
@@ -34,6 +38,10 @@ export class OfficeComponent implements OnInit {
     return this.serviceComponent.getAllServices().subscribe(s => this.services = s)
   }
 
+  isLoggedIn()
+  {
+    return this.navbarComponent.IsLoggedIn();
+  }
 
   ngOnInit() {
     this.getServices();
@@ -42,12 +50,15 @@ export class OfficeComponent implements OnInit {
   onSubmit(){
     if(this.Adress == "" || 
        this.Latitude == undefined||
-       this.Longitude == undefined)        
+       this.Longitude == undefined ||
+       this.selectedFile == null)        
        {
           alert("Some required fields are empty.");    
        }
        else 
        {
+        if(this.isLoggedIn())
+        {
           let headers = new HttpHeaders();
           headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
           headers.append('enctype','multipart/form-data');
@@ -57,23 +68,32 @@ export class OfficeComponent implements OnInit {
 
           let fd = new FormData();                 
           fd.append('office',JSON.stringify(office));          
-
-          let x = this.httpClient.post(`http://localhost:51680/api/Office/PostOffice`, fd.get('office') , {"headers": headers});
-            x.subscribe(
-          res => {
-            let fdImage = new FormData();
-            fdImage.append('image',this.selectedFile, this.selectedFile.name);
-            let y = this.httpClient.post(`http://localhost:51680/api/Office/PostOfficeImage`, fdImage);
-            y.subscribe(
-              resImage => {
-                alert("Office successfully added.");
-              }
-            )              
-          },
-          error => 
+          
+            let x = this.httpClient.post(`http://localhost:51680/api/Office/PostOffice`, fd.get('office') , {"headers": headers});
+              x.subscribe(
+            res => {
+              let fdImage = new FormData();
+              fdImage.append('image',this.selectedFile, this.selectedFile.name);
+              let y = this.httpClient.post(`http://localhost:51680/api/Office/PostOfficeImage`, fdImage);
+              y.subscribe(
+                resImage => {
+                  alert("Office successfully added.");
+                },
+                error => 
+                {
+                  alert("Office image not added." + error.error.Message)
+                }
+              )              
+            },
+            error => 
+            {
+              alert("Office not added." + error.error.Message)  
+            });
+          }
+          else
           {
-              alert("Office not added, error occured.");   
-          });
+            alert("Not logged in.")
+          }
        }
     }
 }

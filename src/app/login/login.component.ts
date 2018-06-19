@@ -19,6 +19,14 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(form: NgForm) : void{
-    this.userService.logIn(form.value)
+    if(this.Username == "" ||
+      this.Password == "")
+      {
+         alert("Some required fields are empty.")
+      }
+      else
+      {
+        this.userService.logIn(form.value)
+      }
   }
 }

@@ -5,18 +5,20 @@ import { VehicleComponent } from '../vehicle/vehicle.component';
 import { Vehicle } from '../models/vehicle';
 import { ServiceComponentComponent } from '../service-component/service-component.component';
 import { VehicletypeComponent } from '../vehicletype/vehicletype.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-management',
   templateUrl: './management.component.html',
   styleUrls: ['./management.component.css'],
-  providers: [VehicleComponent, ServiceComponentComponent, VehicletypeComponent]
+  providers: [VehicleComponent, ServiceComponentComponent, VehicletypeComponent, NavbarComponent]
 })
 export class ManagementComponent implements OnInit {
   
   vehicles : Vehicle[]
 
-  constructor(private vehicleComponent : VehicleComponent, private httpClient: HttpClient) { }
+  constructor(private vehicleComponent : VehicleComponent, 
+              private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.getAllVehicles();
@@ -41,7 +43,7 @@ EnableVehicle(id : number){
     }, 
     error => 
     {
-      alert(error.json().Message);
+      alert("EnableVehicle unsuccessful." + error.error.Message)
     }
   );
 }
@@ -54,7 +56,7 @@ DisableVehicle(id : number){
     }, 
     error => 
     {
-      alert(error.json().Message);
+      alert("DisableVehicle unsuccessful." + error.error.Message)
     }
   );
 }

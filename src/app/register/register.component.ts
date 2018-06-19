@@ -25,6 +25,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitRegister(){
-    this.userService.register(new UserRegistration(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword, this.DateOfBirth, this.FullName)).subscribe(o=>{this.route.navigate(['/home'])});
+    this.userService.register(new UserRegistration(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword, this.DateOfBirth, this.FullName))
+    .subscribe(
+      o=>{
+        alert("Register successful. Please log in.")
+        this.route.navigate(['/login'])
+      },
+      error => 
+      {
+        alert("Register unsuccessful." + error.error.Message)
+      });
   }
 }

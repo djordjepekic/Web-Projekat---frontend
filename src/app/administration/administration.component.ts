@@ -38,7 +38,7 @@ UnbanManager(id : number){
     }, 
     error => 
     {
-      alert("error occured");
+      alert("Unban unsuccessful." + error.error.Message)
     }
   );
 }
@@ -51,7 +51,7 @@ BanManager(id : number){
     }, 
     error => 
     {
-      alert("error occured.");
+      alert("Ban unsuccessful." + error.error.Message)
     }
   );
 }

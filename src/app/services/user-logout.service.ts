@@ -17,5 +17,5 @@ export class LogoutService {
         localStorage.removeItem("role");
         localStorage.removeItem("username");  
         this.route.navigate(['/home']);    
-       }
+  }
 }

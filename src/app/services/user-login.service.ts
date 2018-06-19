@@ -13,16 +13,12 @@ export class UserLoginService {
 
   constructor(private httpClient: HttpClient, private route : Router) { }
 
-  log(user): Observable<any> {
-    console.log(user)
-    let headers = new HttpHeaders();
-    headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
-
-    return this.httpClient.post("http://localhost:51680/oauth/token", 'username=${user.username}&password=${user.password}&grant_type=password', {"headers": headers})
-
-  }
-
   logIn(user) {
+    if(user.username == ""||
+       user.password == "")
+    {
+       alert("Some required fields are empty.")
+    }
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
     

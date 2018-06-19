@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private localStorageService : LocalStorageService) { }
   username: string;
+  role: string;
   ngOnInit() {
   }
 
@@ -21,14 +22,17 @@ export class NavbarComponent implements OnInit {
   }
 
   IsAdmin() : Boolean {
+    this.role = localStorage.getItem("role");
     return this.localStorageService.isAdmin();
   }
 
   IsManager() : Boolean {
+    this.role = localStorage.getItem("role");
     return this.localStorageService.isManager();
   }
 
   IsUser() : Boolean {
+    this.role = localStorage.getItem("role");
     return this.localStorageService.isUser();
   }
 }

@@ -6,10 +6,10 @@
                 <label for = "ServiceId">ServiceId:</label>
             </td>
             <td>
-                <select style="width: 100%" name="Serivces" id="ServiceId" [(ngModel)]="ServiceId" (change)="serviceSelected()">
+                <select style="width: 100%" name="Serivces" id="ServiceId" [(ngModel)]="ServiceId">
                     <option *ngFor = "let service of services" value={{service.Id}} >{{service.Name}}</option>
                 </select>
-          </td>      
+            </td>      
         </tr>
       <tr>
           <td>

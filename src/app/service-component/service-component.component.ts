@@ -3,11 +3,13 @@ import { unescapeIdentifier } from '@angular/compiler';
 import { Service } from '../models/service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-service-component',
   templateUrl: './service-component.component.html',
   styleUrls: ['./service-component.component.css'],
+  providers: [NavbarComponent]
 })
 export class ServiceComponentComponent implements OnInit {
 
@@ -16,7 +18,8 @@ export class ServiceComponentComponent implements OnInit {
   Email : string;
   Description : string;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, 
+              private navbarComponent : NavbarComponent) { }
   selectedFile: File = null;
 
   onFileSelected(event){
@@ -31,50 +34,58 @@ export class ServiceComponentComponent implements OnInit {
     return this.httpClient.get('http://localhost:51680/api/Services/GetServices');
   }
 
-  getServiceById(id : number) : Observable<any> 
+  isLoggedIn()
   {
-    return this.httpClient.get('http://localhost:51680/api/Services/GetService?$filter=ServiceId eq ' + id);
+    return this.navbarComponent.IsLoggedIn();
   }
 
   onSubmit(){
     if(this.Name == "" || 
-       this.Email == ""||
-       this.Description == "") 
+       this.Email == "" ||
+       this.Description == "" ||
+       this.selectedFile == null) 
        {
           alert("Some required fields are empty.");    
        }
        else 
        {
-          let headers = new HttpHeaders();
-          headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
-          headers.append('enctype','multipart/form-data');
-          this.Logo = this.selectedFile.name;
-          
-          let service = new Service(this.Name, this.Logo, this.Email, this.Description)
-
-          let fd = new FormData();                 
-          fd.append('service',JSON.stringify(service));          
-
-          let x = this.httpClient.post(`http://localhost:51680/api/Services/PostService`, fd.get('service') , {"headers": headers});
-            x.subscribe(
-          res => {
-            let fdImage = new FormData();
-            fdImage.append('image',this.selectedFile, this.selectedFile.name);
-            let y = this.httpClient.post(`http://localhost:51680/api/Services/PostServiceImage`, fdImage);
-            y.subscribe(
-              resImage => {
-                alert("Service successfully added.");
-              },
-              error => 
-              {          
-                alert("Service image not added.")
-              }
-            )              
-          },
-          error => 
-          {          
-            alert("Service not added.")
-          });
+          if(this.isLoggedIn())
+          {
+            let headers = new HttpHeaders();
+            headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
+            headers.append('enctype','multipart/form-data');
+            this.Logo = this.selectedFile.name;
+            
+            let service = new Service(this.Name, this.Logo, this.Email, this.Description)
+  
+            let fd = new FormData();                 
+            fd.append('service',JSON.stringify(service));          
+  
+            let x = this.httpClient.post(`http://localhost:51680/api/Services/PostService`, fd.get('service') , {"headers": headers});
+              x.subscribe(
+            res => {
+              let fdImage = new FormData();
+              fdImage.append('image',this.selectedFile, this.selectedFile.name);
+              let y = this.httpClient.post(`http://localhost:51680/api/Services/PostServiceImage`, fdImage);
+              y.subscribe(
+                resImage => {
+                  alert("Service successfully added.");
+                },
+                error => 
+                {          
+                  alert("Service image not added." + error.error.Message)
+                }
+              )              
+            },
+            error => 
+            {          
+              alert("Service not added." + error.error.Message);
+            });       
+          }
+          else
+          {
+            alert("Not logged in.");
+          }
        }
     }
   }
