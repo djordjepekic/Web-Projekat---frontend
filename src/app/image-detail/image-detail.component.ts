@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ImageService } from '../services/image.service'
 import { ActivatedRoute } from '@angular/router'
+import { Vehicle } from '../models/vehicle';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-image-detail',
@@ -8,16 +10,21 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./image-detail.component.css']
 })
 export class ImageDetailComponent implements OnInit {
-  image:any
-  constructor(private imageService: ImageService,
-    private route: ActivatedRoute) { }
 
-  ngOnInit(){
-    this.image = this.imageService.getImage(
-      +this.route.snapshot.params['id']      
-    )
+  private image:Vehicle;
+  private imageLoaded: boolean = false;
+  constructor(private imageService: ImageService, private route: ActivatedRoute) {
+    this.image = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
+   }
 
-    console.log(this.image);
+  ngOnInit(){      
+    this.imageService.getImage(
+      +this.route.snapshot.params['id']                
+    ).then(data => {
+      this.image = data as Vehicle;
+      this.image.Image = environment.backendImages + this.image.Image;
+      this.imageLoaded = true
+    })
+    
   }  
-
 }

@@ -14,7 +14,6 @@ export class ImageComponent implements OnInit {
   onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
     this.imagepath = environment.backendImages + "bmwm3.jpg";
-    console.log(this.imagepath)
   }
 
   constructor(private httpClient:HttpClient) { }
