@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-service-component',
   templateUrl: './service-component.component.html',
-  styleUrls: ['./service-component.component.css']
+  styleUrls: ['./service-component.component.css'],
 })
 export class ServiceComponentComponent implements OnInit {
 
@@ -64,12 +64,16 @@ export class ServiceComponentComponent implements OnInit {
             y.subscribe(
               resImage => {
                 alert("Service successfully added.");
+              },
+              error => 
+              {          
+                alert("Service image not added.")
               }
             )              
           },
           error => 
-          {
-              alert("Service not added, error occured.");   
+          {          
+            alert("Service not added.")
           });
        }
     }

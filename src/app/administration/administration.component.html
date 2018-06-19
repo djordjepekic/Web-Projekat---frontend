@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Manager</th>
+      <th>Account status</th>
+      <th>Command</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let m of managers">
+      <td> {{m.FullName}} </td>
+      <td *ngIf="m.CanCreateService">Normal</td> 
+      <td *ngIf="!m.CanCreateService">Banned</td>
+      <td *ngIf="m.CanCreateService"><button  (click)="BanManager(m.Id)" class="btn btn-secondary">Ban</button></td>
+      <td *ngIf="!m.CanCreateService"><button (click)="UnbanManager(m.Id)" class="btn btn-secondary">Unban</button></td>
+    </tr>
+  </tbody>
+</table>
