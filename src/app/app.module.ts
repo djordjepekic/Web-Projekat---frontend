@@ -18,6 +18,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app/interceptors/tokeninterceptor';
 import { OfficeComponent } from './office/office.component';
 import { VehicletypeComponent } from './vehicletype/vehicletype.component';
+import { ManagementComponent } from './management/management.component';
 
 const  Routes = [
   {
@@ -62,6 +63,10 @@ const  Routes = [
     component: VehicletypeComponent,
   },
   {
+    path: "management",
+    component: ManagementComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -81,7 +86,8 @@ const  Routes = [
     VehicleComponent,
     ServiceComponentComponent,
     OfficeComponent,
-    VehicletypeComponent
+    VehicletypeComponent,
+    ManagementComponent
   ],
   imports: [
     BrowserModule,

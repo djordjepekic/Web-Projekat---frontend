@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand logo" href="#">{{ title }}</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -11,6 +10,20 @@
   </div>
   <div class="topcorner">
     <label>{{username}}</label>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"></li>
+          <li *ngIf="IsAdmin()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicletype']">Add Vehicle Type</a></li>
+         
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addservice']">Add Service</a></li>
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addvoffice']">Add Office</a></li>
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/addvehicle']">Add Vehicle</a></li>
+          <li *ngIf="IsManager()" class="nav-item"><a class="nav-link" [routerLink]="['/management']">Enable/Disable</a></li>      
+    </ul>
   </div>
 </nav>
 

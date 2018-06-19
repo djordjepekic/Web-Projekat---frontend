@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Vehicle</th>
+      <th>Status</th>
+      <th>Command</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let v of vehicles">
+      <td> {{m.Username}} </td>
+      <td *ngIf="v.IsAvailable">Available</td> 
+      <td *ngIf="!v.IsUnavailable">Unavailable</td>
+      <td *ngIf="v.IsAvailable"><button  (click)="enable(v.Id)" class="btn btn-secondary">Enable</button></td>
+      <td *ngIf="!v.IsUnavailable"><button (click)="unavailable(v.Id)" class="btn btn-secondary">Disable</button></td>
+    </tr>
+  </tbody>
+</table>

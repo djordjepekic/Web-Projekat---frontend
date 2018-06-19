@@ -20,15 +20,15 @@ export class NavbarComponent implements OnInit {
     return this.localStorageService.IsLoggedIn();
   }
 
-  isAdmin() : Boolean {
+  IsAdmin() : Boolean {
     return this.localStorageService.isAdmin();
   }
 
-  isManager() : Boolean {
+  IsManager() : Boolean {
     return this.localStorageService.isManager();
   }
 
-  isUser() : Boolean {
+  IsUser() : Boolean {
     return this.localStorageService.isUser();
   }
 }
