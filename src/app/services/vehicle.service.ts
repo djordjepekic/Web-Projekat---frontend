@@ -29,8 +29,4 @@ export class VehicleService {
 
     return this.httpClient.get("http://localhost:51680/api/Vehicle", {params: params});
   }
-
-  postVehicle(newVehicle): Observable<any> {
-    return this.httpClient.post("http://localhost:51680/api/Vehicle", newVehicle);
-  }
 }

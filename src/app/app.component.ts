@@ -37,22 +37,6 @@ export class AppComponent {
       FullName:"Pera Peric",
       Image:"",
       Verified:false
-    };
-
-    this.VehicleService.postVehicle(newUser)
-    .subscribe(
-      data => {
-        if(data!=null)
-          {
-            alert("Success")
-          }
-        else
-        {
-          alert("Failure")
-        }
-      }
-    )
-  }
-
- 
+    };    
+  } 
 }
