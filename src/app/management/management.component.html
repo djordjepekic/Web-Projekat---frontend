@@ -8,11 +8,11 @@
   </thead>
   <tbody>
     <tr *ngFor = "let v of vehicles">
-      <td> {{m.Username}} </td>
-      <td *ngIf="v.IsAvailable">Available</td> 
-      <td *ngIf="!v.IsUnavailable">Unavailable</td>
-      <td *ngIf="v.IsAvailable"><button  (click)="enable(v.Id)" class="btn btn-secondary">Enable</button></td>
-      <td *ngIf="!v.IsUnavailable"><button (click)="unavailable(v.Id)" class="btn btn-secondary">Disable</button></td>
+      <td> {{v.Id}} </td>
+      <td *ngIf="v.Available">Available</td> 
+      <td *ngIf="!v.Available">Unavailable</td>
+      <td *ngIf="v.Available"><button (click)="DisableVehicle(v.Id)" class="btn btn-secondary">Disable</button></td>
+      <td *ngIf="!v.Available"><button  (click)="EnableVehicle(v.Id)" class="btn btn-secondary">Enable</button></td>
     </tr>
   </tbody>
 </table>

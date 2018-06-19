@@ -47,6 +47,11 @@ export class VehicleComponent implements OnInit {
     return this.vehicleTypeComponent.getAllTypes().subscribe(t => this.types = t)
   }
 
+  getAllVehicles() : Observable<any>
+  { 
+    return this.httpClient.get('http://localhost:51680/api/Vehicle/GetVehicles');
+  }
+
   ngOnInit() {
     this.getServices();
     this.getTypes();

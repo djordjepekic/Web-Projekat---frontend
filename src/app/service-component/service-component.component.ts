@@ -3,11 +3,12 @@ import { unescapeIdentifier } from '@angular/compiler';
 import { Service } from '../models/service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { VehicleComponent } from '../vehicle/vehicle.component';
 
 @Component({
   selector: 'app-service-component',
   templateUrl: './service-component.component.html',
-  styleUrls: ['./service-component.component.css']
+  styleUrls: ['./service-component.component.css'],
 })
 export class ServiceComponentComponent implements OnInit {
 
