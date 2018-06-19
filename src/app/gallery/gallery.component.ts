@@ -7,7 +7,6 @@ import { ImageService } from '../services/image.service'
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit, OnChanges {
-  images:any[];
   visibleImages:any[] = [];
 
   constructor(private imageService: ImageService) {
