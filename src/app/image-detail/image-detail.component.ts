@@ -17,14 +17,10 @@ export class ImageDetailComponent implements OnInit {
   private menuExpand: boolean = false;
   private selectedVehicle:Vehicle;
   private imageLoaded: boolean = false;
-<<<<<<< HEAD
+  private price: any = "Loading price...";
   TimeOfReservation : Date;
   TimeToReturn : Date;
-  constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent) {
-=======
-  private price: any = "Loading price...";
   constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent, private httpClient: HttpClient) {
->>>>>>> 79d6a2746a1d44ba16da332557c5d8b1f57a83eb
     this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
 
