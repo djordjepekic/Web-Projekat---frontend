@@ -83,7 +83,6 @@ const  Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ImageComponent,
     GalleryComponent,
     NavbarComponent,
     ImageDetailComponent,

@@ -1,12 +1,12 @@
 <div>
   <div  class=col-md-12>
-       <div [ngStyle]="{'background-image':'url('+ image.Image +')'}" class="img-container paper"></div>    
+       <div [ngStyle]="{'background-image':'url('+ selectedVehicle.Image +')'}" class="img-container paper"></div>    
   </div>
 </div>
 <div class="row">
     <div class="col-md-12 caption-row">
       <span id="caption">
-        {{image.Model}} - {{image.Description}}
+        {{selectedVehicle.Model}} - {{selectedVehicle.Description}}
       </span>
     </div>
 </div>

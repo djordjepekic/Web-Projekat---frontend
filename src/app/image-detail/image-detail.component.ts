@@ -11,18 +11,18 @@ import { environment } from '../../environments/environment';
 })
 export class ImageDetailComponent implements OnInit {
 
-  private image:Vehicle;
+  private selectedVehicle:Vehicle;
   private imageLoaded: boolean = false;
   constructor(private imageService: ImageService, private route: ActivatedRoute) {
-    this.image = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
+    this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
 
   ngOnInit(){      
     this.imageService.getImage(
       +this.route.snapshot.params['id']                
     ).then(data => {
-      this.image = data as Vehicle;
-      this.image.Image = environment.backendImages + this.image.Image;
+      this.selectedVehicle = data as Vehicle;
+      this.selectedVehicle.Image = environment.backendImages + this.selectedVehicle.Image;
       this.imageLoaded = true
     })
     

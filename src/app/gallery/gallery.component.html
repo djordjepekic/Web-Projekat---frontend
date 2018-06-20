@@ -1,9 +1,8 @@
 <div>
-<p>this is gallery!</p>
   <ul id="thumbnailsList">
       <li *ngFor="let image of visibleImages" >        
           <a [routerLink] ="['/image', image.Id]">
-            <img src="{{image.Image}}" class="tn" width="256" height="192">
+              <img src="{{image.Image}}" class="tn" width="256" height="192">
         </a>
       </li>
   </ul>
