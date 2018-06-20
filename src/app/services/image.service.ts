@@ -5,6 +5,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Vehicle } from '../models/vehicle';
 import { Observable } from 'rxjs';
 
+export class PaginationData{
+  images : Vehicle[];
+  totalRecordCount : number;
+  pageCount: number;
+  pageNo: number;
+  pageSize: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,14 +32,17 @@ export class ImageService {
         let data = this.getVehicleImages(pageNo,pageSize);
         data.subscribe(
           res => {
+            let obj: PaginationData = new PaginationData;            
             this.PageCount = res.Paging.PageCount;
             this.PageNo = res.Paging.PageNo;
             this.PageSize = res.Paging.PageSize;
             this.TotalRecordCount = res.Paging.TotalRecordCount;
             this.IMAGES = res.Data;
             this.visibleImages = this.IMAGES.slice(0); 
-            //console.log(this.visibleImages);
-            resolve(this.IMAGES);
+            
+            obj.images = this.visibleImages;
+            obj.totalRecordCount = this.TotalRecordCount;
+            resolve(obj);
           },
           error => {
            reject(error);

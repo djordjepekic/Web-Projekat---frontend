@@ -19,3 +19,31 @@ li {
     width:256px; 
     height:192px; 
 }
+
+.pagination {
+    display: inline-block;
+    border: 2px solid grey;
+    border-radius: 8px;
+}
+
+.pagination a {
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+a.active {
+    border: 1px solid green;
+    background-color: lightgreen;
+    color: white;
+}
+
+a{
+    background-color: ghostwhite;
+}
+
+select{
+    width: 100px;
+}
