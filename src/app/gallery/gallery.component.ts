@@ -26,13 +26,19 @@ export class GalleryComponent implements OnInit, OnChanges {
     this.imageService.getImages(1,10).then(data => {
       this.visibleImages = data as Vehicle[];
       //console.log(this.visibleImages);
-      this.visibleImages.forEach(obj => {
-        obj.Image = environment.backendImages + obj.Image;
-      })
+      if(this.visibleImages.length == 0){      
+        alert("No vehicles available. :(");
+      }
+      else{
+        this.visibleImages.forEach(obj => {
+          obj.Image = environment.backendImages + obj.Image;
+        })
+      }      
     })
   }  
 
   ngOnInit() {
+    this.ngOnChanges();
   }
 
 }
