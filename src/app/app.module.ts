@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ImageComponent } from './image/image.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
@@ -88,7 +87,6 @@ const  Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ImageComponent,
     GalleryComponent,
     NavbarComponent,
     ImageDetailComponent,
