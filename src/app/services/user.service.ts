@@ -23,7 +23,7 @@ export class UserService {
   }
 
   getUsers(): Observable<any> {
-    return this.httpClient.get("http://localhost:51680/api/AppUser/GetUser");
+    return this.httpClient.get("http://localhost:51680/api/AppUser/GetAllUsers");
   }
 
   getManagers(): Observable<any> {
