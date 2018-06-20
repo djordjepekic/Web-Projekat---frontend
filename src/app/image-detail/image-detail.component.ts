@@ -4,8 +4,10 @@ import { ActivatedRoute } from '@angular/router'
 import { Vehicle } from '../models/vehicle';
 import { environment } from '../../environments/environment';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { HttpParams, HttpClient } from '@angular/common/http';
+import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { PriceListItem } from '../models/pricelistitem';
+import { PriceList } from '../models/pricelist';
+import { ReservationModel } from '../models/reservationModel';
 
 @Component({
   selector: 'app-image-detail',
@@ -20,6 +22,7 @@ export class ImageDetailComponent implements OnInit {
   private price: any = "Loading price...";
   TimeOfReservation : Date;
   TimeToReturn : Date;
+  UserName : string;
   constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent, private httpClient: HttpClient) {
     this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
@@ -44,7 +47,9 @@ export class ImageDetailComponent implements OnInit {
         alert(error.error.Message);
       },    
       );
-    })    
+    })  
+
+    this.UserName = localStorage.getItem("username");
   }  
 
   isLoggedIn(){
@@ -59,5 +64,36 @@ export class ImageDetailComponent implements OnInit {
     let params: HttpParams = new HttpParams()
     .set('id', id);
     return this.httpClient.get("http://localhost:51680/api/PriceList/GetPriceList/"+id);
+  }
+
+  Reservation()
+  {
+    if(this.TimeOfReservation == undefined ||
+       this.TimeToReturn == undefined)
+       {
+         alert("Some required fields are empty.");
+       }
+       else
+       {
+        let headers = new HttpHeaders();
+        headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
+        headers.append('enctype','multipart/form-data');
+        
+        let reservationModel = new ReservationModel(this.UserName,this.selectedVehicle.Id,this.TimeOfReservation, this.TimeToReturn);
+
+        let fd = new FormData();                 
+        fd.append('reservationModel',JSON.stringify(reservationModel));
+              
+
+        let x = this.httpClient.post(`http://localhost:51680/api/PriceList/Reservation`, fd.get("reservationModel") , {"headers": headers});
+          x.subscribe(
+        res => {
+          alert("Reservation successfull.");               
+        },
+        error => 
+        {
+          alert("Reservation could not be processed." + error.error.Message); 
+        });
+       }
   }
 }

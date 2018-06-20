@@ -1,17 +1,3 @@
-<table class="table table-sm" width=50%>
-    <thead class="thead-inverse">
-        <tr>
-          <th>Vehicle</th>
-          <th>Current Price</th>
-        </tr>
-    </thead>
-      <tbody>
-        <tr *ngFor = "let p of pricelistitems" >
-          <td>{{p.VehicleId}}</td>  
-          <td>{{p.Price}}</td>
-        </tr>
-      </tbody>
-</table>
 <table class="table">
   <thead class="thead-inverse">
     <tr>
@@ -31,4 +17,18 @@
       <td><button  (click)="ChangeVehiclePrice()" class="btn btn-secondary">Change Price</button></td>
     </tr>
   </tbody>
+</table>
+<table class="table table-sm" width=50%>
+    <thead class="thead-inverse">
+        <tr>
+          <th>Vehicle</th>
+          <th>Current Price</th>
+        </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor = "let p of pricelistitems" >
+          <td>{{p.VehicleId}}</td>  
+          <td>{{p.Price}}</td>
+        </tr>
+      </tbody>
 </table>
