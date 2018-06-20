@@ -26,6 +26,7 @@ export class PriceManagementComponent implements OnInit {
   getAllPriceListItems()
   {
     this.getPriceListItems().subscribe(p => this.pricelistitems = p)
+    console.log(this.pricelistitems);
   }
 
   getPriceListItems() : Observable<any>

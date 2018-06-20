@@ -38,6 +38,11 @@ export class OfficeComponent implements OnInit {
     return this.serviceComponent.getAllServices().subscribe(s => this.services = s)
   }
 
+  getAllOffices() : Observable<any>
+  {
+    return this.httpClient.get('http://localhost:51680/api/Office/GetAllOffices'); 
+  }
+
   isLoggedIn()
   {
     return this.navbarComponent.IsLoggedIn();

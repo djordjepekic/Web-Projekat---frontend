@@ -8,12 +8,15 @@ import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { PriceListItem } from '../models/pricelistitem';
 import { PriceList } from '../models/pricelist';
 import { ReservationModel } from '../models/reservationModel';
+import { Office } from '../models/office';
+import { OfficeComponent } from '../office/office.component';
+import { ServiceComponentComponent } from '../service-component/service-component.component';
 
 @Component({
   selector: 'app-image-detail',
   templateUrl: './image-detail.component.html',
   styleUrls: ['./image-detail.component.css'],
-  providers: [NavbarComponent]
+  providers: [NavbarComponent, OfficeComponent, ServiceComponentComponent]
 })
 export class ImageDetailComponent implements OnInit {
   private menuExpand: boolean = false;
@@ -23,7 +26,10 @@ export class ImageDetailComponent implements OnInit {
   TimeOfReservation : Date;
   TimeToReturn : Date;
   UserName : string;
-  constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent, private httpClient: HttpClient) {
+  TakeOfficeId : number;
+  ReturnOfficeId : number;
+  offices : Office[];
+  constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent, private httpClient: HttpClient, private officeComponent : OfficeComponent) {
     this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
 
@@ -50,6 +56,7 @@ export class ImageDetailComponent implements OnInit {
     })  
 
     this.UserName = localStorage.getItem("username");
+    this.getAllOffices();
   }  
 
   isLoggedIn(){
@@ -58,6 +65,11 @@ export class ImageDetailComponent implements OnInit {
 
   switchMenu(){
     this.menuExpand = !this.menuExpand;
+  }
+
+  getAllOffices()
+  {
+    this.officeComponent.getAllOffices().subscribe(o => this.offices = o);
   }
 
   getVehiclePrice(id){
@@ -79,7 +91,7 @@ export class ImageDetailComponent implements OnInit {
         headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
         headers.append('enctype','multipart/form-data');
         
-        let reservationModel = new ReservationModel(this.UserName,this.selectedVehicle.Id,this.TimeOfReservation, this.TimeToReturn);
+        let reservationModel = new ReservationModel(this.UserName,this.selectedVehicle.Id,this.TimeOfReservation, this.TimeToReturn, this.TakeOfficeId, this.ReturnOfficeId);
 
         let fd = new FormData();                 
         fd.append('reservationModel',JSON.stringify(reservationModel));

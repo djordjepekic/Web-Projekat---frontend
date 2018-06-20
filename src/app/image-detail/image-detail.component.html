@@ -58,6 +58,28 @@
             </tr>
             </tbody>
           </table>
+          <table class="table">
+              <thead class="thead-inverse">
+                  <tr>
+                    <th>Office to take vehicle</th>
+                    <th>Office to Return</th>
+                  </tr>
+                </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <select style="width: 100%" name="Offices" id="TakeOfficeId" [(ngModel)]="TakeOfficeId">
+                        <option *ngFor = "let office of offices" value={{office.Id}} >{{office.Adress}}</option>
+                    </select>
+                </td>  
+                <td>
+                    <select style="width: 100%" name="Offices" id="ReturnOfficeId" [(ngModel)]="ReturnOfficeId">
+                        <option *ngFor = "let office of offices" value={{office.Id}} >{{office.Adress}}</option>
+                    </select>
+                </td>   
+            </tr>
+            </tbody>
+          </table>
           <button class="confirmbutton" (click)="Reservation()">
             Confirm ✓
           </button>
