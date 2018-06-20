@@ -45,7 +45,7 @@ export class PriceManagementComponent implements OnInit {
 
   ChangeVehiclePrice()
   {
-    console.log(this.VehicleId, this.NewPrice);
+    //console.log(this.VehicleId, this.NewPrice);
     if(this.VehicleId == undefined ||
       this.NewPrice == undefined)        
        {
