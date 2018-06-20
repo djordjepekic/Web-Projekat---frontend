@@ -40,7 +40,24 @@
           </button>
         </a>
         <div *ngIf="menuExpand">
-          <p>DATES GO HERE</p>
+          <table class="table">
+              <thead class="thead-inverse">
+                  <tr>
+                    <th>Time of reservation</th>
+                    <th>Time to return</th>
+                  </tr>
+                </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input type="date" name="Date" id="Date" [(ngModel)]="TimeOfReservation"/>
+                </td>
+                <td>
+                    <input type="date" name="Date" id="Date" [(ngModel)]="TimeToReturn"/>
+                </td>
+            </tr>
+            </tbody>
+          </table>
           <button class="confirmbutton">
             Confirm ✓
           </button>

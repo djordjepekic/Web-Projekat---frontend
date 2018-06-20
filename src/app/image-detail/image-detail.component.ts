@@ -15,6 +15,8 @@ export class ImageDetailComponent implements OnInit {
   private menuExpand: boolean = false;
   private selectedVehicle:Vehicle;
   private imageLoaded: boolean = false;
+  TimeOfReservation : Date;
+  TimeToReturn : Date;
   constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent) {
     this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
