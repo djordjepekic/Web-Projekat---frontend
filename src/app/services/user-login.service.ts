@@ -25,10 +25,10 @@ export class UserLoginService {
     if(!localStorage.jwt)
     {
        let x = this.httpClient.post('http://localhost:51680/oauth/token', `username=${user.username}&password=${user.password}&grant_type=password` , {"headers": headers}) as Observable<any>
-       console.log(user)
+       //console.log(user)
      x.subscribe(
         res => {
-          console.log(res.access_token);
+          //console.log(res.access_token);
           
           let jwt = res.access_token;
 
@@ -38,10 +38,10 @@ export class UserLoginService {
 
           let role = decodedJwtData.role
 
-          console.log('jwtData: ' + jwtData)
-          console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
-          console.log('decodedJwtData: ' + decodedJwtData)
-          console.log('Role ' + role)
+          //console.log('jwtData: ' + jwtData)
+          //console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
+          //console.log('decodedJwtData: ' + decodedJwtData)
+          //console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
           localStorage.setItem("token", decodedJwtJsonData); // token
