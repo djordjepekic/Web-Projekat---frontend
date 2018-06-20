@@ -15,8 +15,7 @@ export class ReservationsComponent implements OnInit {
   ngOnInit() {
     let vehicleData = this.getReservedVehicles(localStorage.getItem("username"));
     vehicleData.subscribe(
-      res => {
-        console.log(res);
+      res => {        
         this.vehicles = res as Vehicle[];
       }
     )

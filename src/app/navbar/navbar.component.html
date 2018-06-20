@@ -6,7 +6,7 @@
           <li *ngIf="!IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
           <li *ngIf="IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/logout']">Logout</a></li>
           <li *ngIf="!IsLoggedIn()"  class="nav-item"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
-          <li *ngIf="IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/reservations']">Reservations</a></li>
+          <li *ngIf="IsLoggedIn()" class="nav-item"><a class="nav-link" [routerLink]="['/reservations']">Current Reservations</a></li>
     </ul>
   </div>
   <div class="topcorner">
