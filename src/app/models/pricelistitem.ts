@@ -8,4 +8,12 @@ export class PriceListItem {
     Vehicle : Vehicle;
     PriceListId : number;
     PriceList : PriceList;
+
+    constructor (
+        price : number,  
+        vehicleId: number) {
+    this.Price = price;
+    this.VehicleId = vehicleId;
+
+    }
 }

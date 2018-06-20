@@ -19,6 +19,7 @@ import { OfficeComponent } from './office/office.component';
 import { VehicletypeComponent } from './vehicletype/vehicletype.component';
 import { ManagementComponent } from './management/management.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { PriceManagementComponent } from './price-management/price-management.component';
 
 const  Routes = [
   {
@@ -71,6 +72,10 @@ const  Routes = [
     component: AdministrationComponent,
   },
   {
+    path: "changeprice",
+    component: PriceManagementComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -91,7 +96,8 @@ const  Routes = [
     OfficeComponent,
     VehicletypeComponent,
     ManagementComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    PriceManagementComponent
   ],
   imports: [
     BrowserModule,
