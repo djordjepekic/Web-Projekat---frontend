@@ -1,12 +1,50 @@
-<div>
-  <div  class=col-md-12>
-       <div [ngStyle]="{'background-image':'url('+ selectedVehicle.Image +')'}" class="img-container paper"></div>    
-  </div>
-</div>
-<div class="row">
-    <div class="col-md-12 caption-row">
-      <span id="caption">
-        {{selectedVehicle.Model}} - {{selectedVehicle.Description}}
-      </span>
-    </div>
-</div>
+<table width=100% height=100%>
+  <tr>
+    <td width=50% valign="top">
+      <div>
+          <div  class=img-container>
+                <!--><div [ngStyle]="{'background-image':'url('+ selectedVehicle.Image +')'}" class="img-container paper"></div><!-->
+                <img src={{selectedVehicle.Image}}>
+          </div>
+      </div>
+    </td>
+    <td width=50% valign="top">
+      <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Model</th>
+              <th>Manufacturer</th>
+              <th>Description</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{selectedVehicle.Model}}</td>
+              <td>{{selectedVehicle.Manufacturer}}</td>
+              <td>{{selectedVehicle.Description}}</td>
+              <td>{{selectedVehicle.Year}}</td>
+            </tr>
+          </tbody>
+        </table> 
+        <h5>Price per hour: PRICE GOES HERE</h5>       
+        <button class="mainbutton" *ngIf="isLoggedIn() && !menuExpand" (click)="switchMenu()">
+          Reserve this vehicle
+        </button>
+        <button class="mainbutton" *ngIf="isLoggedIn() && menuExpand" (click)="switchMenu()">
+            Cancel reservation
+        </button>
+        <a *ngIf="!isLoggedIn()" [routerLink]="['/login']">
+          <button class="mainbutton">
+              Log in to reserve this vehicle.
+          </button>
+        </a>
+        <div *ngIf="menuExpand">
+          <p>DATES GO HERE</p>
+          <button class="confirmbutton">
+            Confirm ✓
+          </button>
+        </div>                
+    </td>
+  </tr>
+</table>
