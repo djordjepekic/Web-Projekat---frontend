@@ -1,15 +1,16 @@
 .img-container{
   border: 2px solid black;
-    margin:0px;
-    box-shadow:#555 0px 2px 8px 0px;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-content: center;
-    margin-left: 50px;
-    margin-top: 30px;
-    max-width: 90%;
-    max-height: 90%
+  margin:0px;
+  box-shadow:#555 0px 2px 8px 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-content: center;
+  margin-left: 50px;
+  margin-top: 30px;
+  max-width: 90%;
+  max-height: 90%
 }
+
 
 img{
   display: block;

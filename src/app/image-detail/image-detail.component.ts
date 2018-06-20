@@ -40,7 +40,7 @@ export class ImageDetailComponent implements OnInit {
       pricedata.subscribe(
         res=> {
           let resPrice = res[0] as PriceListItem
-          console.log(res)
+          //console.log(res)
           this.price = resPrice.Price;
         },
         error => {
