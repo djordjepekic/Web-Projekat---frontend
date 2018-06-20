@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Vehicle</th>
+      <th>Current Price</th>
+      <th>New Price</th>
+      <th>Command</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let p of pricelistitem">
+      <td> {{p.VehicleId}} </td>
+      <td> {{p.Price}} </td> 
+      <td><input type="text" name="newPrice" id="NewPrice" [(ngModel)]="NewPrice"></td>
+      <td><button  (click)="ChangeVehiclePrice(p.VehicleId)" class="btn btn-secondary">Change Price</button></td>
+    </tr>
+  </tbody>
+</table>
