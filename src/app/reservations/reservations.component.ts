@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { Vehicle } from '../models/vehicle';
 
 @Component({
   selector: 'app-reservations',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./reservations.component.css']
 })
 export class ReservationsComponent implements OnInit {
-
+  private vehicles: Vehicle[];
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
@@ -16,6 +17,7 @@ export class ReservationsComponent implements OnInit {
     vehicleData.subscribe(
       res => {
         console.log(res);
+        this.vehicles = res as Vehicle[];
       }
     )
   }
