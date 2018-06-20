@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router'
 import { Vehicle } from '../models/vehicle';
 import { environment } from '../../environments/environment';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { HttpParams, HttpClient } from '@angular/common/http';
+import { PriceListItem } from '../models/pricelistitem';
 
 @Component({
   selector: 'app-image-detail',
@@ -15,9 +17,14 @@ export class ImageDetailComponent implements OnInit {
   private menuExpand: boolean = false;
   private selectedVehicle:Vehicle;
   private imageLoaded: boolean = false;
+<<<<<<< HEAD
   TimeOfReservation : Date;
   TimeToReturn : Date;
   constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent) {
+=======
+  private price: any = "Loading price...";
+  constructor(private imageService: ImageService, private route: ActivatedRoute, private navbar: NavbarComponent, private httpClient: HttpClient) {
+>>>>>>> 79d6a2746a1d44ba16da332557c5d8b1f57a83eb
     this.selectedVehicle = new Vehicle("Loading...","",0,"",false,environment.backendImages+"loading.gif",0,0,0);
    }
 
@@ -28,7 +35,20 @@ export class ImageDetailComponent implements OnInit {
       this.selectedVehicle = data as Vehicle;
       this.selectedVehicle.Image = environment.backendImages + this.selectedVehicle.Image;
       this.imageLoaded = true
-    })     
+
+      //get price
+      let pricedata = this.getVehiclePrice(this.selectedVehicle.Id);
+      pricedata.subscribe(
+        res=> {
+          let resPrice = res[0] as PriceListItem
+          console.log(res)
+          this.price = resPrice.Price;
+        },
+        error => {
+        alert(error.error.Message);
+      },    
+      );
+    })    
   }  
 
   isLoggedIn(){
@@ -37,5 +57,11 @@ export class ImageDetailComponent implements OnInit {
 
   switchMenu(){
     this.menuExpand = !this.menuExpand;
+  }
+
+  getVehiclePrice(id){
+    let params: HttpParams = new HttpParams()
+    .set('id', id);
+    return this.httpClient.get("http://localhost:51680/api/PriceList/GetPriceList/"+id);
   }
 }
