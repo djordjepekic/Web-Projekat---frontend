@@ -10,23 +10,23 @@
     </td>
     <td width=50% valign="top">
       <table class="table">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Model</th>
-              <th>Manufacturer</th>
-              <th>Description</th>
-              <th>Year</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{selectedVehicle.Model}}</td>
-              <td>{{selectedVehicle.Manufacturer}}</td>
-              <td>{{selectedVehicle.Description}}</td>
-              <td>{{selectedVehicle.Year}}</td>
-            </tr>
-          </tbody>
-        </table> 
+        <thead class="thead-inverse">
+          <tr>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Description</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{selectedVehicle.Model}}</td>
+            <td>{{selectedVehicle.Manufacturer}}</td>
+            <td>{{selectedVehicle.Description}}</td>
+            <td>{{selectedVehicle.Year}}</td>
+          </tr>
+        </tbody>
+      </table> 
         <h5>Price per hour: {{price}} €</h5>      
         <button class="mainbutton" *ngIf="isLoggedIn() && !menuExpand" (click)="switchMenu()">
           Reserve this vehicle

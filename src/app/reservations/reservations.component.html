@@ -1,0 +1,19 @@
+<h3>Your current reservations:</h3>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Description</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let v of vehicles">
+      <td>{{v.Model}}</td>
+      <td>{{v.Manufacturer}}</td>
+      <td>{{v.Description}}</td>
+      <td>{{v.Year}}</td>
+    </tr>
+  </tbody>
+</table> 

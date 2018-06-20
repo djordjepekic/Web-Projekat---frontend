@@ -30,18 +30,20 @@ li {
     cursor: pointer;
     color: black;
     float: left;
-    padding: 8px 16px;
+    padding: 2px 14px;
     text-decoration: none;
 }
 
 a.active {
+    font-weight: bolder;
     border: 1px solid green;
-    background-color: lightgreen;
+    background-color: rgb(188, 255, 188);
     color: white;
 }
 
 a{
-    background-color: ghostwhite;
+    background-color: white;
+    font-size: 14pt;
 }
 
 select{

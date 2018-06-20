@@ -20,6 +20,7 @@ import { VehicletypeComponent } from './vehicletype/vehicletype.component';
 import { ManagementComponent } from './management/management.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { PriceManagementComponent } from './price-management/price-management.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 const  Routes = [
   {
@@ -76,6 +77,10 @@ const  Routes = [
     component: PriceManagementComponent,
   },
   {
+    path: "reservations",
+    component: ReservationsComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -97,7 +102,8 @@ const  Routes = [
     VehicletypeComponent,
     ManagementComponent,
     AdministrationComponent,
-    PriceManagementComponent
+    PriceManagementComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,
