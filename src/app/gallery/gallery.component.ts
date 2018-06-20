@@ -53,6 +53,7 @@ export class GalleryComponent implements OnInit, OnChanges {
 
   getNumberOfPages(totalRecordCount,itemsPerPage){   
     let num = (totalRecordCount/itemsPerPage).toFixed(0)
+    //cant have negative amount of pages
     if(+num == 0){
       return 1;
     }
