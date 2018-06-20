@@ -40,6 +40,7 @@ EnableVehicle(id : number){
     x => 
     {
       this.vehicles.find(m => m.Id == id).Available = true;
+      this.getAllVehicles();
     }, 
     error => 
     {
@@ -53,6 +54,7 @@ DisableVehicle(id : number){
     x => 
     {
       this.vehicles.find(m => m.Id == id).Available = false;
+      this.getAllVehicles();
     }, 
     error => 
     {
