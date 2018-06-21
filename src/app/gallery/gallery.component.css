@@ -46,10 +46,10 @@ a:hover{
 
 a.inactive {
     border: 1px solid grey;
+    background-color: white;
 }
 
 a{
-    background-color: white;
     font-size: 14pt;
 }
 

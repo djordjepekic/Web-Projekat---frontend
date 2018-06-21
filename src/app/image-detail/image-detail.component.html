@@ -46,7 +46,7 @@
                     <th>Time of reservation</th>
                     <th>Time to return</th>
                   </tr>
-                </thead>
+              </thead>
             <tbody>
             <tr>
                 <td>
@@ -68,12 +68,12 @@
             <tbody>
             <tr>
                 <td>
-                    <select style="width: 100%" name="Offices" id="TakeOfficeId" [(ngModel)]="TakeOfficeId">
+                    <select style="width: 200px" name="Offices" id="TakeOfficeId" [(ngModel)]="TakeOfficeId">
                         <option *ngFor = "let office of offices" value={{office.Id}} >{{office.Adress}}</option>
                     </select>
                 </td>  
                 <td>
-                    <select style="width: 100%" name="Offices" id="ReturnOfficeId" [(ngModel)]="ReturnOfficeId">
+                    <select style="width: 200px" name="Offices" id="ReturnOfficeId" [(ngModel)]="ReturnOfficeId">
                         <option *ngFor = "let office of offices" value={{office.Id}} >{{office.Adress}}</option>
                     </select>
                 </td>   
