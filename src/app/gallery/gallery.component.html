@@ -1,5 +1,6 @@
 <label >Items per page:</label>
 <select (change)="ngOnChanges()" [(ngModel)]="pageSize">
+    <option  [value]="1" >1</option>
     <option  [value]="3" >3</option>
     <option  [value]="5" >5</option>
     <option  [value]="10" >10</option>
@@ -11,11 +12,11 @@
       <a (click)=decrPage()>&laquo;</a>
       <li *ngFor="let page of pages">
         <a class="active" *ngIf="pageNo == page" (click)=setPage(page) >{{page}}</a>
-        <a *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
+        <a class="inactive" *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
       </li>
       <a (click)=incrPage()>&raquo;</a>
     </div>
-  </ul>
+</ul>
 <div>
   <ul id="thumbnailsList">
     <li *ngFor="let image of visibleImages" >      
@@ -31,7 +32,7 @@
     <a (click)=decrPage()>&laquo;</a>
     <li *ngFor="let page of pages">
       <a class="active" *ngIf="pageNo == page" (click)=setPage(page) >{{page}}</a>
-      <a *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
+      <a class="inactive" *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
     </li>
     <a (click)=incrPage()>&raquo;</a>
   </div>
