@@ -1,5 +1,5 @@
 <br>
-<label>Items per page:</label>
+<label>Items per page:&nbsp;</label>
 <select (change)="ngOnChanges()" [(ngModel)]="pageSize">
     <option  [value]="1" >1</option>
     <option  [value]="3" >3</option>
@@ -22,7 +22,7 @@
   <ul id="thumbnailsList">
     <li *ngFor="let image of visibleImages" > 
       <div class="divs">
-          <div >
+          <div>
               <a class="divText"[routerLink] ="['/image', image.Id]">
                 {{image.Manufacturer}} | {{image.Model}}
               </a>   

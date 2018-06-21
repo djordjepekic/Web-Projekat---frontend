@@ -10,7 +10,7 @@
     <tr>
       <td>
         <select style="width: 100%" name="Vehicles" id="VehicleId" [(ngModel)]="VehicleId">
-            <option *ngFor = "let vehicle of vehicles" value={{vehicle.Id}} >{{vehicle.Id}} {{vehicle.Model}} {{vehicle.Manufacturer}} </option>
+            <option *ngFor = "let vehicle of vehicles" value={{vehicle.Id}} >{{vehicle.Id}} | {{vehicle.Manufacturer}} | {{vehicle.Model}} </option>
         </select>
       </td>  
       <td><input type="text" name="newPrice" id="NewPrice" [(ngModel)]="NewPrice"></td>
