@@ -14,6 +14,5 @@ export class PriceListItem {
         vehicleId: number) {
     this.Price = price;
     this.VehicleId = vehicleId;
-
     }
 }

@@ -20,7 +20,7 @@ export class UserLoginService {
        alert("Some required fields are empty.")
     }
     let headers = new HttpHeaders();
-    //headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
+    headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
     
     if(!localStorage.jwt)
     {

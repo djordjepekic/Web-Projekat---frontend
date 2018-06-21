@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Service</th>
+      <th>Status</th>
+      <th>Command</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let s of services">
+      <td> {{s.Name}} </td>
+      <td *ngIf="s.Verified">Verified</td> 
+      <td *ngIf="!s.Verified">Not Verified</td>
+      <td *ngIf="s.Verified"><button  (click)="UnVerfiy(s.Id)" class="btn btn-secondary">UnVerfiy</button></td>
+      <td *ngIf="!s.Verified"><button (click)="Verfiy(s.Id)" class="btn btn-secondary">Verfiy</button></td>
+    </tr>
+  </tbody>
+</table>

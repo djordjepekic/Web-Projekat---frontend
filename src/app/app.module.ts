@@ -21,6 +21,7 @@ import { ManagementComponent } from './management/management.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { PriceManagementComponent } from './price-management/price-management.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { ServiceAdministrationComponent } from './service-administration/service-administration.component';
 
 const  Routes = [
   {
@@ -81,6 +82,10 @@ const  Routes = [
     component: ReservationsComponent,
   },
   {
+    path: "verification",
+    component: ServiceAdministrationComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   }  
@@ -103,7 +108,8 @@ const  Routes = [
     ManagementComponent,
     AdministrationComponent,
     PriceManagementComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    ServiceAdministrationComponent
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,7 @@ export class VehicleComponent implements OnInit {
 
   getServices()
   {
-    return this.serviceComponent.getAllServices().subscribe(s => this.services = s)
+    return this.serviceComponent.getAllVerifiedServices().subscribe(s => this.services = s)
   }
 
   getTypes()
