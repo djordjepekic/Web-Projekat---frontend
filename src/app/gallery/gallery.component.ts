@@ -24,7 +24,7 @@ export class GalleryComponent implements OnInit, OnChanges {
     //if we are on a higher page then the number that exist, return us to the highest page
     if(this.pageNo > +this.getNumberOfPages(this.totalRecordCount,this.pageSize)){
       this.setPage(+this.getNumberOfPages(this.totalRecordCount,this.pageSize));     
-      console.log(this.pageNo) 
+      //console.log(this.pageNo) 
     } 
 
     this.imageService.getImages(this.pageNo,this.pageSize).then(data => {
@@ -51,8 +51,9 @@ export class GalleryComponent implements OnInit, OnChanges {
   ngOnInit() {    
   }
 
-  getNumberOfPages(totalRecordCount,itemsPerPage){   
-    let num = (totalRecordCount/itemsPerPage).toFixed(0)
+  getNumberOfPages(totalRecordCount,itemsPerPage){       
+    let num = (totalRecordCount/itemsPerPage)
+    num = Math.ceil(num);
     //cant have negative amount of pages
     if(+num == 0){
       return 1;

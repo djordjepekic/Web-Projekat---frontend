@@ -1,38 +1,47 @@
-<label >Items per page:</label>
+<br>
+<label>Items per page:&nbsp;</label>
 <select (change)="ngOnChanges()" [(ngModel)]="pageSize">
+    <option  [value]="1" >1</option>
     <option  [value]="3" >3</option>
     <option  [value]="5" >5</option>
     <option  [value]="10" >10</option>
     <option  [value]="25" >25</option>
 </select>
-<ul>
-    <p class="paginationTitle">Pages:</p>
+<ul class="paginationUl">
+  <p class="paginationTitle">Pages:</p>
     <div class="pagination">
-      <a (click)=decrPage()>&laquo;</a>
+      <a class="inactive" (click)=decrPage()>&laquo;</a>
       <li *ngFor="let page of pages">
         <a class="active" *ngIf="pageNo == page" (click)=setPage(page) >{{page}}</a>
-        <a *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
+        <a class="inactive" *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
       </li>
-      <a (click)=incrPage()>&raquo;</a>
+      <a class="inactive" (click)=incrPage()>&raquo;</a>
     </div>
-  </ul>
-<div>
+</ul>
+<div class="paginationUl">
   <ul id="thumbnailsList">
-    <li *ngFor="let image of visibleImages" >      
-        <a [routerLink] ="['/image', image.Id]">
-            <img src="{{image.Image}}" class="tn">
-        </a>            
+    <li *ngFor="let image of visibleImages" > 
+      <div class="divs">
+          <div>
+              <a class="divText"[routerLink] ="['/image', image.Id]">
+                {{image.Manufacturer}} | {{image.Model}}
+              </a>   
+          </div>
+          <a class="imageLink" [routerLink] ="['/image', image.Id]">
+            <img src="{{image.Image}}"  class="tn">    
+          </a>   
+      </div>              
     </li>
   </ul>
 </div>
-<ul>
+<ul class="paginationUl">
   <p class="paginationTitle">Pages:</p>
   <div class="pagination">
-    <a (click)=decrPage()>&laquo;</a>
+    <a class="inactive" (click)=decrPage()>&laquo;</a>
     <li *ngFor="let page of pages">
       <a class="active" *ngIf="pageNo == page" (click)=setPage(page) >{{page}}</a>
-      <a *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
+      <a class="inactive" *ngIf="pageNo != page" (click)=setPage(page) >{{page}}</a>
     </li>
-    <a (click)=incrPage()>&raquo;</a>
+    <a class="inactive" (click)=incrPage()>&raquo;</a>
   </div>
 </ul>
