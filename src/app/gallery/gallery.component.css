@@ -1,6 +1,8 @@
 ul {
-     padding:0; width:75%; margin:20px auto
+  width:80%;
+  margin:25px auto;
 }
+
 li {
      display:inline;
 }
@@ -50,9 +52,11 @@ li {
 }
 
 a.active {
-    border: 1px dotted black;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 1px solid black;
     font-weight: normal;    
-    background-color: rgba(144, 238, 144, 0.685)
+    background-color: rgba(144, 238, 144, 0.500);
 }
 
 a:hover{
@@ -66,10 +70,6 @@ a.inactive {
 
 a{
     font-size: 14pt;
-}
-
-.imageLink{
-    
 }
 
 select{

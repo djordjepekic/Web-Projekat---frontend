@@ -12,10 +12,17 @@ export class LogoutService {
   }
 
   logout() {   
-        localStorage.removeItem('jwt')
-        localStorage.removeItem("token");
-        localStorage.removeItem("role");
-        localStorage.removeItem("username");  
-        this.route.navigate(['/home']);    
+    if(confirm("Do you wish to log out?")){
+      localStorage.removeItem('jwt')
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      localStorage.removeItem("username");  
+      this.route.navigate(['/home']); 
+      alert("You have been logged out.")   
+    }
+    else
+    {
+      this.route.navigate(['/home']);
+    }
   }
 }

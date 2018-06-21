@@ -49,6 +49,7 @@ export class UserLoginService {
           localStorage.setItem("username", user.username);
 
           this.route.navigate(['/home']);
+          alert("Welcome " + user.username + "!");
         },
         err => {
           console.log("Error occured");
