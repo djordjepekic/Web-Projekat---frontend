@@ -31,7 +31,7 @@ export class ServiceComponentComponent implements OnInit {
 
   getAllServices() : Observable<any>
   { 
-    return this.httpClient.get('http://localhost:51680/api/Services/GetServices');
+    return this.httpClient.get('http://localhost:51680/api/Services/GetAllVerifiedServices');
   }
 
   isLoggedIn()
