@@ -9,10 +9,12 @@ li {
 
 .paginationUl{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .tn{
  margin: 15px;
+ margin-bottom: 50px;
  border: 2px groove grey;
  box-shadow:#555 1px 1px 6px 1px;
  cursor: pointer;
@@ -29,10 +31,13 @@ li {
 }
 
 .divText {
+    color: black;
+    font-size: 12pt;
     font-weight: lighter;
     position: absolute;
     top: -16px;
     left: 16px;
+    border-bottom: 1px solid black;
 }
 
 .pagination {
@@ -55,10 +60,14 @@ a.active {
     border: 1px solid black;
     border-radius: 4px;
     font-weight: normal;    
-    background-color: rgba(158, 158, 158, 0.5);
+    background-color: rgba(197, 197, 197, 0.5);
 }
 
-a:hover{
+a.active:hover{
+    font-weight: bold;
+}
+
+a.inactive:hover{
     font-weight: bold;
 }
 

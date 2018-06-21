@@ -22,7 +22,11 @@
   <ul id="thumbnailsList">
     <li *ngFor="let image of visibleImages" > 
       <div class="divs">
-          <div class="divText">{{image.Manufacturer}} | {{image.Model}}</div>
+          <div >
+              <a class="divText"[routerLink] ="['/image', image.Id]">
+                {{image.Manufacturer}} | {{image.Model}}
+              </a>   
+          </div>
           <a class="imageLink" [routerLink] ="['/image', image.Id]">
             <img src="{{image.Image}}"  class="tn">    
           </a>   
