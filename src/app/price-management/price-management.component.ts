@@ -57,7 +57,9 @@ export class PriceManagementComponent implements OnInit {
            let headers = new HttpHeaders();
            headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
            headers.append('enctype','multipart/form-data');
-           
+           //headers.append('Access-Control-Allow-Origin', "*");
+           //headers.append('Access-Control-Allow-Headers','Content-Type');
+
            let priceListItem = new PriceListItem(this.NewPrice, this.VehicleId);
  
            let fd = new FormData();                 

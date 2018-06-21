@@ -11,6 +11,7 @@ import { ReservationModel } from '../models/reservationModel';
 import { Office } from '../models/office';
 import { OfficeComponent } from '../office/office.component';
 import { ServiceComponentComponent } from '../service-component/service-component.component';
+import { PriceListItemReservationModel } from '../models/priceListItemReservationModel';
 
 @Component({
   selector: 'app-image-detail',
@@ -100,7 +101,20 @@ export class ImageDetailComponent implements OnInit {
         let x = this.httpClient.post(`http://localhost:51680/api/PriceList/Reservation`, fd.get("reservationModel") , {"headers": headers});
           x.subscribe(
         res => {
-          alert("Reservation successfull.");               
+          let priceListId = res as number;
+          let priceListItem = new PriceListItemReservationModel(priceListId,this.selectedVehicle.Id);
+          let fdPriceListId = new FormData();
+          fdPriceListId.append('priceListItem',JSON.stringify(priceListItem))
+          let y = this.httpClient.post(`http://localhost:51680/api/PriceList/PriceListItemId`, fdPriceListId.get("priceListItem"), {"headers": headers});
+        y.subscribe(
+            resPriceListId => {
+              alert("Reservation successfull.");               
+            },
+            error =>
+            {
+              alert("Reservation could not be processed." + error.error.Message);
+            }
+          )
         },
         error => 
         {
