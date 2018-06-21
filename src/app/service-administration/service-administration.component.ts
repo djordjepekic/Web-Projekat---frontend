@@ -26,14 +26,14 @@ export class ServiceAdministrationComponent implements OnInit {
     return this.serviceComponent.getAllServices().subscribe(u => this.services = u)
   }
   
-  VerfiyOrUnVerfiy(Id : number) : Observable<any>{
+  VerifyOrUnVerify(Id : number) : Observable<any>{
       let fd = new FormData();                 
       fd.append('Id',JSON.stringify(Id)); 
-      return this.httpClient.post('http://localhost:51680/api/Services/VerfiyOrUnVerfiy', fd);
+      return this.httpClient.post('http://localhost:51680/api/Services/VerifyOrUnVerify', fd);
   }
   
-  Verfiy(id : number){
-    this.VerfiyOrUnVerfiy(id).subscribe(
+  Verify(id : number){
+    this.VerifyOrUnVerify(id).subscribe(
       x => 
       {
         this.services.find(m => m.Id == id).Verified = true;
@@ -45,8 +45,8 @@ export class ServiceAdministrationComponent implements OnInit {
     );
   }
   
-  UnVerfiy(id : number){
-    this.VerfiyOrUnVerfiy(id).subscribe(
+  UnVerify(id : number){
+    this.VerifyOrUnVerify(id).subscribe(
       x => 
       {
         this.services.find(m => m.Id == id).Verified = false;

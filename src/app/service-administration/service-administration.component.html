@@ -11,8 +11,8 @@
       <td> {{s.Name}} </td>
       <td *ngIf="s.Verified">Verified</td> 
       <td *ngIf="!s.Verified">Not Verified</td>
-      <td *ngIf="s.Verified"><button  (click)="UnVerfiy(s.Id)" class="btn btn-secondary">UnVerfiy</button></td>
-      <td *ngIf="!s.Verified"><button (click)="Verfiy(s.Id)" class="btn btn-secondary">Verfiy</button></td>
+      <td *ngIf="s.Verified"><button  (click)="UnVerify(s.Id)" class="btn btn-secondary">UnVerify</button></td>
+      <td *ngIf="!s.Verified"><button (click)="Verify(s.Id)" class="btn btn-secondary">Verify</button></td>
     </tr>
   </tbody>
 </table>
