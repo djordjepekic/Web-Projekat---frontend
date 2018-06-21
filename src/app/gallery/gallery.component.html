@@ -7,8 +7,8 @@
     <option  [value]="10" >10</option>
     <option  [value]="25" >25</option>
 </select>
-<ul>
-    <p class="paginationTitle">Pages:</p>
+<ul class="paginationUl">
+  <p class="paginationTitle">Pages:</p>
     <div class="pagination">
       <a class="inactive" (click)=decrPage()>&laquo;</a>
       <li *ngFor="let page of pages">
@@ -18,7 +18,7 @@
       <a class="inactive" (click)=incrPage()>&raquo;</a>
     </div>
 </ul>
-<div>
+<div class="paginationUl">
   <ul id="thumbnailsList">
     <li *ngFor="let image of visibleImages" > 
       <div class="divs">
@@ -30,7 +30,7 @@
     </li>
   </ul>
 </div>
-<ul>
+<ul class="paginationUl">
   <p class="paginationTitle">Pages:</p>
   <div class="pagination">
     <a class="inactive" (click)=decrPage()>&laquo;</a>
