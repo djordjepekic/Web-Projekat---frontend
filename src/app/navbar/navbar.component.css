@@ -11,6 +11,16 @@ background: lightgray;
   color: grey;
 }
 
+.nav-item{
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.navbar-brand{
+  font-weight: normal;
+  font-style: oblique;
+}
+
 .logo{
 color: grey;
 font-family: 'cabin', sans-serif;
