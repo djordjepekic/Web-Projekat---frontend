@@ -6,12 +6,27 @@ li {
 }
 
 .tn{
- margin:6px 6px;
+ margin: 15px;
  border: 4px solid #eee;
  box-shadow:#555 1px 1px 8px 1px;
  cursor: pointer;
  width:256px; 
  height:192px; 
+ display:inline-block
+}
+
+.divs{
+     display:inline-block;
+     position: relative;
+     text-align: center;
+     color: black;
+}
+
+.divText {
+    font-weight: lighter;
+    position: absolute;
+    top: -16px;
+    left: 16px;
 }
 
 .containercl {
@@ -51,6 +66,10 @@ a.inactive {
 
 a{
     font-size: 14pt;
+}
+
+.imageLink{
+    
 }
 
 select{
